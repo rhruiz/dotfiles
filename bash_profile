@@ -11,6 +11,12 @@ if [ -f /usr/local/etc/bash_completion ] ; then
     source /usr/local/etc/bash_completion
 fi
 
+if [ -d /usr/local/etc/bash_completion.d ] ; then
+  for f in /usr/local/etc/bash_completion.d/*; do
+    source $f
+  done
+fi
+
 # set -o vi
 
 export LANG="en_US.UTF-8"
@@ -25,11 +31,7 @@ alias rspec="bundle exec rspec"
 alias rake="bundle exec rake"
 
 # GIT
-
-if [ -f ~/.git-prompt.sh ] ; then
-  source ~/.git-prompt.sh
-fi
-
+# brew install git
 git_prompt_info() {
         __git_ps1
 }
