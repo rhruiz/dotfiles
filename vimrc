@@ -23,6 +23,7 @@ Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'rking/ag.vim'
+Plugin 'tpope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -86,7 +87,7 @@ set wildignore+=*.class
 
 " ctrlp
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn)|target)$',
+  \ 'dir':  '\v[\/](\.(git|hg|svn)|target|deps|node_modules|_build)$',
   \ 'file': '\v\.(exe|so|dll|class)$',
   \ }
 
