@@ -36,8 +36,8 @@ syntax on
 set tabstop=2
 set softtabstop=2
 set expandtab
-set shiftwidth=4
-set linespace=4
+set shiftwidth=2
+set linespace=2
 set guifont=Monaco\ for\ powerline:h13
 set backspace=indent,eol,start
 
