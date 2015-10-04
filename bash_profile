@@ -4,12 +4,16 @@ if [ -f /etc/bashrc ]; then
 fi
 
 if [ -d $HOME/.bash_completion.d ] ; then
-    source $HOME/.bash_completion.d/*
+  for i in $HOME/.bash_completion.d/* ; do
+    source $i
+  done
 fi
 
-# if [ -d /usr/local/etc/bash_completion.d ] ; then
-#   source /usr/local/etc/bash_completion.d/*
-# fi
+if [ -d /usr/local/etc/bash_completion.d ] ; then
+  for i in /usr/local/etc/bash_completion.d/* ; do
+    source $i
+  done
+fi
 
 if [ -f /usr/local/etc/bash_completion ] ; then
     source /usr/local/etc/bash_completion
@@ -94,5 +98,7 @@ export PATH
 # LOCAL
 
 if [ -d $HOME/.bash_profile.d ] ; then
-  source $HOME/.bash_profile.d/*
+  for i in $HOME/.bash_profile.d/* ; do
+    source $i
+  done
 fi
