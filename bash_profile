@@ -67,9 +67,12 @@ function __prompt_command() {
   fi
 
   PS1="$PROMPTHOST \[\033[1;34m\]\w\[\033[1;31m\]\$(git_prompt_info)\[\033[0m\]$EXIT ➜ "
+
+  update_terminal_cwd; update_terminal_cwd
 }
 
 export PROMPT_COMMAND=__prompt_command
+
 
 # RBENV
 
