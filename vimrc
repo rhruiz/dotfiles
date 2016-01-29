@@ -24,6 +24,11 @@ Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-salve'
+Plugin 'tpope/vim-projectionist'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-fireplace'
+Plugin 'keith/swift.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

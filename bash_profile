@@ -34,11 +34,11 @@ alias rake="bundle exec rake"
 # GIT
 
 git_prompt_info() {
-  # __git_ps1
-  DEPTH=$( pwd | sed 's/[^\/]//g' )
-  if [[ ${#DEPTH} -ge 3 ]] ; then
-    git symbolic-ref HEAD 2> /dev/null | sed -e 's/refs\/heads\/\(.*\)/ (\1)/' 2> /dev/null
-  fi
+  __git_ps1
+  # DEPTH=$( pwd | sed 's/[^\/]//g' )
+  # if [[ ${#DEPTH} -ge 3 ]] ; then
+  #   git symbolic-ref HEAD 2> /dev/null | sed -e 's/refs\/heads\/\(.*\)/ (\1)/' 2> /dev/null
+  # fi
 }
 
 #
