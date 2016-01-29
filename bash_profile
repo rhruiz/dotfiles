@@ -73,6 +73,12 @@ function __prompt_command() {
 
 export PROMPT_COMMAND=__prompt_command
 
+if [ ! -n "$(type -t update_terminal_cwd)" ]; then
+  if [ -f /etc/bashrc_Apple_Terminal ] ; then
+    source /etc/bashrc_Apple_Terminal
+  fi
+fi
+
 
 # RBENV
 
