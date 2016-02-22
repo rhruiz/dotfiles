@@ -51,6 +51,15 @@ else
     PROMPTHOST=""
 fi
 
+
+function _docker_prompt() {
+  if [[ "$DOCKER_HOST" != "" ]]; then
+    echo -n " 🐳 "
+  else
+    echo -n ""
+  fi
+}
+
 # PROMPT=$'%n%{\e[0;38m%]}@%{\e[01;34m%]}%m%{\e[0;37m%]}:%{\e[1;37m%]}%~%{\e[0;37m%]}%{\e[0m%]}%(#.#.$) '
 # PS1=$'%n@%m %B%{$fg[blue]%}%~ %{$fg[red]%}$(git_prompt_info)\$%{$reset_color%}%b '
 # ➤ ⊗ ⊕ ➔ ➠ ➨ ➜ ✪ λ"
@@ -66,7 +75,7 @@ function __prompt_command() {
     EXIT=""
   fi
 
-  PS1="$PROMPTHOST \[\033[1;34m\]\w\[\033[1;31m\]\$(git_prompt_info)\[\033[0m\]$EXIT ➜ "
+  PS1="$PROMPTHOST \[\033[1;34m\]\w\[\033[1;31m\]\$(git_prompt_info)\[\033[0m\]$(_docker_prompt)$EXIT ➜ "
 
   update_terminal_cwd; update_terminal_cwd
 }
