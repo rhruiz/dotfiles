@@ -41,41 +41,116 @@ git_prompt_info() {
   # fi
 }
 
+function __promptline_vcs_branch {
+  local branch
+  local branch_symbol=" "
+
+  # git
+  if hash git 2>/dev/null; then
+    if branch=$( { git symbolic-ref --quiet HEAD || git rev-parse --short HEAD; } 2>/dev/null ); then
+      branch=${branch##*/}
+      printf "%s" "${branch_symbol}${branch:-unknown}"
+      return
+    fi
+  fi
+  return 1
+}
+
+function __promptline_cwd {
+  local dir_limit="3"
+  local truncation="⋯ "
+  local first_char
+  local part_count=0
+  local formatted_cwd=""
+  local dir_sep="/"
+  local tilde="~"
+
+  local cwd="${PWD/#$HOME/$tilde}"
+
+  # get first char of the path, i.e. tilde or slash
+  [[ -n ${ZSH_VERSION-} ]] && first_char=$cwd[1,1] || first_char=${cwd::1}
+
+  # remove leading tilde
+  cwd="${cwd#\~}"
+
+  while [[ "$cwd" == */* && "$cwd" != "/" ]]; do
+    # pop off last part of cwd
+    local part="${cwd##*/}"
+    cwd="${cwd%/*}"
+
+    formatted_cwd="$dir_sep$part$formatted_cwd"
+    part_count=$((part_count+1))
+
+    [[ $part_count -eq $dir_limit ]] && first_char="$truncation" && break
+  done
+
+  printf "%s" "$first_char$formatted_cwd"
+}
+
 #
 # Command Prompt
 #
 
-if [[ "$SSH_CLIENT" != "" ]]; then
-    PROMPTHOST="\u@\h 👾 "
-else
-    PROMPTHOST=""
-fi
-
+function _ssh_prompt() {
+  if [[ "$SSH_CLIENT" != "" ]]; then
+      printf "%s" "\u@\h 👾 "
+  fi
+}
 
 function _docker_prompt() {
   if [[ "$DOCKER_HOST" != "" ]]; then
-    echo -n " 🐳 "
-  else
-    echo -n ""
+    echo -n "🐳 "
   fi
+}
+
+function _exit_status() {
+  if [[ "$1" != "0" ]] ; then
+    echo -n "💩 "
+  fi
+
 }
 
 # PROMPT=$'%n%{\e[0;38m%]}@%{\e[01;34m%]}%m%{\e[0;37m%]}:%{\e[1;37m%]}%~%{\e[0;37m%]}%{\e[0m%]}%(#.#.$) '
 # PS1=$'%n@%m %B%{$fg[blue]%}%~ %{$fg[red]%}$(git_prompt_info)\$%{$reset_color%}%b '
 # ➤ ⊗ ⊕ ➔ ➠ ➨ ➜ ✪ λ"
+# ⁙ ⁖ ⁑ ⁐ ‣ ⁘ ⁛ ⁝ ⁞ ∴ ∷ ▒      
 # PS1=$'$PROMPTHOST %B%{$fg[blue]%}%~%{$fg[red]%}\W$(__git_ps1 " (%s)" \W$(~/.rvm/bin/rvm-prompt)) %{$reset_color%}➔%b '
 # PS1="$PROMPTHOST \[\033[1;34m\]\w\[\033[1;31m\]\$(git_prompt_info)\[\033[0m\] ➔ "
 
 function __prompt_command() {
-  local EXIT="$?"
+  local last_exit_code="$?"
 
-  if [[ $EXIT != 0 ]] ; then
-    EXIT=" 💩 "
+  local wrap="\033["
+  local end_wrap='m'
+  local space=" "
+  local sep=""
+  local alt_sep=""
+  local reset="${wrap}0${end_wrap}"
+  local reset_bg="${wrap}49${end_wrap}"
+  local a_fg="${wrap}38;5;0${end_wrap}"
+  local a_bg="${wrap}48;5;255${end_wrap}"
+  local a_sep_fg="${wrap}38;5;255${end_wrap}"
+  local b_fg="${wrap}1;31${end_wrap}"
+
+  local white_fg="${wrap}97${end_wrap}"
+  local blue_fg="${wrap}1;34${end_wrap}"
+
+  local cwd_prompt="${blue_fg}$(__promptline_cwd)${reset}"
+  local git_prompt=$(__promptline_vcs_branch)
+
+  if [[ "${git_prompt}" == "" ]]; then
+    GIT_PROMPT=""
   else
-    EXIT=""
+    GIT_PROMPT=" ${b_fg}${git_prompt}${reset}"
   fi
 
-  PS1="$PROMPTHOST \[\033[1;34m\]\w\[\033[1;31m\]\$(git_prompt_info)\[\033[0m\]$(_docker_prompt)$EXIT ➜ "
+  local left_side="$(_ssh_prompt)$(_docker_prompt)$(_exit_status $last_exit_code)"
+
+  if [[ "$left_side" != "" ]]; then
+    left_side="${a_bg}$left_side${reset}${a_sep_fg}${sep}${bg_reset}${reset} "
+  fi
+
+  PS1="${left_side}${cwd_prompt}${GIT_PROMPT} ➜ ${bg_reset}${reset}"
 
   update_terminal_cwd; update_terminal_cwd
 }
@@ -87,7 +162,6 @@ if [ ! -n "$(type -t update_terminal_cwd)" ]; then
     source /etc/bashrc_Apple_Terminal
   fi
 fi
-
 
 # RBENV
 
