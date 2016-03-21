@@ -147,7 +147,7 @@ function __prompt_command() {
   local left_side="$(_ssh_prompt)$(_docker_prompt)$(_exit_status $last_exit_code)"
 
   if [[ "$left_side" != "" ]]; then
-    left_side="${a_bg}$left_side${reset}${a_sep_fg}${sep}${bg_reset}${reset} "
+    left_side="${left_side} "
   fi
 
   PS1="${left_side}${cwd_prompt}${GIT_PROMPT} ➜ ${bg_reset}${reset}"
