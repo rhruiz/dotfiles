@@ -43,13 +43,11 @@ git_prompt_info() {
 
 function __promptline_vcs_branch {
   local branch
-  local branch_symbol=" "
-
   # git
   if hash git 2>/dev/null; then
     if branch=$( { git symbolic-ref --quiet HEAD || git rev-parse --short HEAD; } 2>/dev/null ); then
       branch=${branch##*/}
-      printf "%s" "${branch_symbol}${branch:-unknown}"
+      printf "(%s)" "${branch:-unknown}"
       return
     fi
   fi
@@ -120,28 +118,20 @@ function _exit_status() {
 function __prompt_command() {
   local last_exit_code="$?"
 
-  local wrap="\033["
-  local end_wrap='m'
-  local space=" "
-  local sep=""
-  local alt_sep=""
-  local reset="${wrap}0${end_wrap}"
-  local reset_bg="${wrap}49${end_wrap}"
-  local a_fg="${wrap}38;5;0${end_wrap}"
-  local a_bg="${wrap}48;5;255${end_wrap}"
-  local a_sep_fg="${wrap}38;5;255${end_wrap}"
-  local b_fg="${wrap}1;31${end_wrap}"
+  local wrap="\[\033["
+  local end_wrap='m\]'
+  local reset="$(tput sgr0)"
 
-  local white_fg="${wrap}97${end_wrap}"
-  local blue_fg="${wrap}1;34${end_wrap}"
+  local blue_fg="$(tput setaf 4)"
+  local red_fg="$(tput setaf 1)"
 
-  local cwd_prompt="${blue_fg}$(__promptline_cwd)${reset}"
+  local cwd_prompt="$(tput bold)${blue_fg}\w"
   local git_prompt=$(__promptline_vcs_branch)
 
   if [[ "${git_prompt}" == "" ]]; then
     GIT_PROMPT=""
   else
-    GIT_PROMPT=" ${b_fg}${git_prompt}${reset}"
+    GIT_PROMPT=" $(tput bold)${red_fg}${git_prompt}"
   fi
 
   local left_side="$(_ssh_prompt)$(_docker_prompt)$(_exit_status $last_exit_code)"
@@ -150,7 +140,7 @@ function __prompt_command() {
     left_side="${left_side} "
   fi
 
-  PS1="${left_side}${cwd_prompt}${GIT_PROMPT} ➜ ${bg_reset}${reset}"
+  PS1="${left_side}${cwd_prompt}${GIT_PROMPT}${reset} ➜ "
 
   update_terminal_cwd; update_terminal_cwd
 }
