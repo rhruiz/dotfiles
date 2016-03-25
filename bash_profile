@@ -141,10 +141,9 @@ function __prompt_command() {
 
   PS1="${left_side}\[$(tput bold)\]\[$(tput setaf 4)\]$(__promptline_cwd)${GIT_PROMPT}\[$(tput sgr0)\] ➜ "
 
-  update_terminal_cwd; update_terminal_cwd
 }
 
-export PROMPT_COMMAND=__prompt_command
+export PROMPT_COMMAND="__prompt_command${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
 
 if [ ! -n "$(type -t update_terminal_cwd)" ]; then
   if [ -f /etc/bashrc_Apple_Terminal ] ; then
