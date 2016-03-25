@@ -54,35 +54,55 @@ function __promptline_vcs_branch {
   return 1
 }
 
+function __join {
+  local IFS="$1"; shift; echo "$*"
+}
+
 function __promptline_cwd {
-  local dir_limit="3"
+  local dir_limit=3
   local truncation="⋯ "
   local first_char
   local part_count=0
   local formatted_cwd=""
   local dir_sep="/"
   local tilde="~"
+  local path_to_keep=""
 
   local cwd="${PWD/#$HOME/$tilde}"
 
+  ## remove leading tilde
+
   # get first char of the path, i.e. tilde or slash
-  [[ -n ${ZSH_VERSION-} ]] && first_char=$cwd[1,1] || first_char=${cwd::1}
 
-  # remove leading tilde
-  cwd="${cwd#\~}"
+  if [[ "${cwd}" == "~" ]] ; then
+    first_char="~"
+  else
+    if [[ "${cwd::1}" == "~" ]] ; then
+      first_char="~/"
+      cwd="${cwd/#\~/}"
+    else
+      first_char="/"
+    fi
+  fi
 
-  while [[ "$cwd" == */* && "$cwd" != "/" ]]; do
-    # pop off last part of cwd
-    local part="${cwd##*/}"
-    cwd="${cwd%/*}"
+  IFS='/' read -r -a array <<< "$cwd"
 
-    formatted_cwd="$dir_sep$part$formatted_cwd"
-    part_count=$((part_count+1))
+  array=("${array[@]:1}")
 
-    [[ $part_count -eq $dir_limit ]] && first_char="$truncation" && break
-  done
+  local limit=$dir_limit
 
-  printf "%s" "$first_char$formatted_cwd"
+  if [[ ${#array[@]} -gt $limit ]] ; then
+    first_char="$truncation/"
+    formatted_cwd="$(__join $dir_sep ${array[@]: -$dir_limit:$dir_limit})"
+  else
+    if [[ ${#array[@]} -eq $limit ]]; then
+      formatted_cwd="$(__join $dir_sep ${array[@]: -$dir_limit:$dir_limit})"
+    else
+      formatted_cwd="$(__join $dir_sep ${array[*]})"
+    fi
+  fi
+
+  printf "%s" "${first_char}${formatted_cwd}"
 }
 
 #
