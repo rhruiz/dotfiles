@@ -103,7 +103,7 @@ function _docker_prompt() {
 
 function _exit_status() {
   if [[ "$1" != "0" ]] ; then
-    printf "%s" "💩 "
+    printf "%s" " 💩 "
   fi
 
 }
@@ -118,12 +118,10 @@ function _exit_status() {
 function __prompt_command() {
   local last_exit_code="$?"
 
-  local wrap="\[\033["
-  local end_wrap="m\]"
-  local reset="$(tput sgr0)"
-
-  local blue_fg="$(tput setaf 4)"
-  local red_fg="$(tput setaf 1)"
+  local reset="\[$(tput sgr0)\]"
+  local blue_fg="\[$(tput setaf 4)\]"
+  local red_fg="\[$(tput setaf 1)\]"
+  local bold="\[$(tput bold)\]"
 
   local git_prompt=$(__promptline_vcs_branch)
 
@@ -139,7 +137,7 @@ function __prompt_command() {
     left_side="${left_side} "
   fi
 
-  PS1="${left_side}\[$(tput bold)\]\[$(tput setaf 4)\]$(__promptline_cwd)${GIT_PROMPT}\[$(tput sgr0)\] ➜ "
+  PS1="${left_side}${bold}${blue_fg}$(__promptline_cwd)${GIT_PROMPT}${reset} ➜ "
 
 }
 
