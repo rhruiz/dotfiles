@@ -97,13 +97,13 @@ function _ssh_prompt() {
 
 function _docker_prompt() {
   if [[ "$DOCKER_HOST" != "" ]]; then
-    echo -n "🐳 "
+    printf "%s" " 🐳 "
   fi
 }
 
 function _exit_status() {
   if [[ "$1" != "0" ]] ; then
-    echo -n "💩 "
+    printf "%s" "💩 "
   fi
 
 }
@@ -119,19 +119,18 @@ function __prompt_command() {
   local last_exit_code="$?"
 
   local wrap="\[\033["
-  local end_wrap='m\]'
+  local end_wrap="m\]"
   local reset="$(tput sgr0)"
 
   local blue_fg="$(tput setaf 4)"
   local red_fg="$(tput setaf 1)"
 
-  local cwd_prompt="$(tput bold)${blue_fg}\w"
   local git_prompt=$(__promptline_vcs_branch)
 
   if [[ "${git_prompt}" == "" ]]; then
     GIT_PROMPT=""
   else
-    GIT_PROMPT=" $(tput bold)${red_fg}${git_prompt}"
+    GIT_PROMPT="\[$(tput setaf 1)\] ${git_prompt}"
   fi
 
   local left_side="$(_ssh_prompt)$(_docker_prompt)$(_exit_status $last_exit_code)"
@@ -140,7 +139,7 @@ function __prompt_command() {
     left_side="${left_side} "
   fi
 
-  PS1="${left_side}${cwd_prompt}${GIT_PROMPT}${reset} ➜ "
+  PS1="${left_side}\[$(tput bold)\]\[$(tput setaf 4)\]$(__promptline_cwd)${GIT_PROMPT}\[$(tput sgr0)\] ➜ "
 
   update_terminal_cwd; update_terminal_cwd
 }
