@@ -1,3 +1,4 @@
+#!/bin/bash
 
 if [ -f /etc/bashrc ]; then
     source /etc/bashrc
@@ -31,29 +32,6 @@ alias ls='ls -G'
 alias rspec="bundle exec rspec"
 alias rake="bundle exec rake"
 
-# GIT
-
-git_prompt_info() {
-  __git_ps1
-  # DEPTH=$( pwd | sed 's/[^\/]//g' )
-  # if [[ ${#DEPTH} -ge 3 ]] ; then
-  #   git symbolic-ref HEAD 2> /dev/null | sed -e 's/refs\/heads\/\(.*\)/ (\1)/' 2> /dev/null
-  # fi
-}
-
-function __promptline_vcs_branch {
-  local branch
-  # git
-  if hash git 2>/dev/null; then
-    if branch=$( { git symbolic-ref --quiet HEAD || git rev-parse --short HEAD; } 2>/dev/null ); then
-      branch=${branch##*/}
-      printf "(%s)" "${branch:-unknown}"
-      return
-    fi
-  fi
-  return 1
-}
-
 function __join {
   local IFS="$1"; shift; echo "$*"
 }
@@ -61,7 +39,7 @@ function __join {
 function __promptline_cwd {
   local dir_limit=3
   local truncation="⋯ "
-  local first_char
+  local first_char=""
   local part_count=0
   local formatted_cwd=""
   local dir_sep="/"
@@ -69,10 +47,6 @@ function __promptline_cwd {
   local path_to_keep=""
 
   local cwd="${PWD/#$HOME/$tilde}"
-
-  ## remove leading tilde
-
-  # get first char of the path, i.e. tilde or slash
 
   if [[ "${cwd}" == "~" ]] ; then
     first_char="~"
@@ -111,19 +85,19 @@ function __promptline_cwd {
 
 function _ssh_prompt() {
   if [[ "$SSH_CLIENT" != "" ]]; then
-      printf "%s" "\u@\h 👾 "
+      printf "%s" "\u@\h 👾"
   fi
 }
 
 function _docker_prompt() {
   if [[ "$DOCKER_HOST" != "" ]]; then
-    printf "%s" " 🐳 "
+    printf "%s" "🐳"
   fi
 }
 
 function _exit_status() {
   if [[ "$1" != "0" ]] ; then
-    printf "%s" " 💩 "
+    printf "%s" "💩"
   fi
 
 }
@@ -143,21 +117,13 @@ function __prompt_command() {
   local red_fg="\[$(tput setaf 1)\]"
   local bold="\[$(tput bold)\]"
 
-  local git_prompt=$(__promptline_vcs_branch)
+  local git_prompt=$(__git_ps1 " ${red_fg} %s")
+  local left_side=($(_ssh_prompt) $(_docker_prompt) $(_exit_status $last_exit_code))
 
-  if [[ "${git_prompt}" == "" ]]; then
-    GIT_PROMPT=""
-  else
-    GIT_PROMPT="\[$(tput setaf 1)\] ${git_prompt}"
-  fi
+  local left_side_prompt=""
+  [[ "$(__join "" ${left_side[*]})" != "" ]] && left_side_prompt="$(__join " " ${left_side[*]})  "
 
-  local left_side="$(_ssh_prompt)$(_docker_prompt)$(_exit_status $last_exit_code)"
-
-  if [[ "$left_side" != "" ]]; then
-    left_side="${left_side} "
-  fi
-
-  PS1="${left_side}${bold}${blue_fg}$(__promptline_cwd)${GIT_PROMPT}${reset} ➜ "
+  PS1="${left_side_prompt}${bold}${blue_fg}$(__promptline_cwd)${git_prompt}${reset} ➜ "
 
 }
 
