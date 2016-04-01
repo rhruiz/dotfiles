@@ -149,13 +149,14 @@ function __prompt_command() {
   local red_fg="\[$(tput setaf 1)\]"
   local bold="\[$(tput bold)\]"
 
-  local git_prompt=$(__git_ps1 " ${red_fg} %s")
+  local git_prompt=$(__git_ps1 "${red_fg}(%s) ")
   local left_side=($(_ssh_prompt) $(_docker_prompt) $(_exit_status $last_exit_code))
 
   local left_side_prompt=""
   [[ "$(__join "" ${left_side[*]})" != "" ]] && left_side_prompt="$(__join " " ${left_side[*]})  "
 
   PS1="${left_side_prompt}${bold}${blue_fg}$(__promptline_cwd)${git_prompt}${reset} ➜ "
+  PS1="${left_side_prompt}${git_prompt}${bold}${blue_fg}$(__promptline_cwd)> ${reset}"
 
 }
 
