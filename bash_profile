@@ -45,17 +45,46 @@ function __promptline_cwd {
   local dir_sep="/"
   local tilde="~"
   local path_to_keep=""
+  local start=${1-$PWD}
+  local from_dev=${2-0}
+  local cwd=""
 
-  local cwd="${PWD/#$HOME/$tilde}"
+  if [[ $start == $HOME/dev/*/* ]]; then
+    cwd="${PWD/#$HOME\/dev\//}"
+    IFS='/' read -r -a cwd_parts <<< "$cwd"
+    first_char=""
 
-  if [[ "${cwd}" == "~" ]] ; then
-    first_char="~"
-  else
-    if [[ "${cwd::1}" == "~" ]] ; then
-      first_char="~/"
-      cwd="${cwd/#\~/}"
+    if [[ ${#cwd_parts[@]} -gt 1 ]]; then
+      dev_dir="${cwd_parts[1]}"
+      first_char="${dev_dir}"
+      truncation="${dev_dir}/${truncation}"
+      cwd="${cwd/#${cwd_parts[0]}\/$dev_dir/}"
     else
-      first_char="/"
+      cwd="${PWD/#$HOME/$tilde}"
+
+      if [[ "${cwd}" == "~" ]] ; then
+        first_char="~"
+      else
+        if [[ "${cwd::1}" == "~" ]] ; then
+          first_char="~/"
+          cwd="${cwd/#\~/}"
+        else
+          first_char="/"
+        fi
+      fi
+    fi
+  else
+    cwd="${PWD/#$HOME/$tilde}"
+
+    if [[ "${cwd}" == "~" ]] ; then
+      first_char="~"
+    else
+      if [[ "${cwd::1}" == "~" ]] ; then
+        first_char="~/"
+        cwd="${cwd/#\~/}"
+      else
+        first_char="/"
+      fi
     fi
   fi
 
@@ -76,7 +105,10 @@ function __promptline_cwd {
     fi
   fi
 
-  printf "%s" "${first_char}${formatted_cwd}"
+  formatted_cwd="${first_char}${formatted_cwd}"
+
+  printf "%s" "${formatted_cwd/%\//}"
+  return
 }
 
 #
