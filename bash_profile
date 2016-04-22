@@ -58,8 +58,8 @@ function __promptline_cwd {
     fi
   fi
 
-  cwd="${cwd/#$fake_root\//}"
   cwd="${cwd/#$fake_root/}"
+  cwd="${cwd/#\//}"
 
   IFS='/' read -r -a array <<< "$cwd"
 
