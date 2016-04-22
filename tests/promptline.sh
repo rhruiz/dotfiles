@@ -28,4 +28,8 @@ assert "__promptline_cwd $HOME/dev/category/project/one/two/three" "project/one/
 assert "__promptline_cwd $HOME/dev/category/project/one/two/three/four" "project/one/two/three/four"
 assert "__promptline_cwd $HOME/dev/category/project/one/two/three/four/five" "project/$truncation/three/four/five"
 
+# regressions
+
+assert "__promptline_cwd \"$HOME/Library/Application Support\"" "~/Library/Application Support"
+
 assert_end examples

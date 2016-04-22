@@ -63,20 +63,17 @@ function __promptline_cwd {
 
   IFS='/' read -r -a array <<< "$cwd"
 
-  #array=("${array[@]:1}")
-
   local limit=$dir_limit+1
+  local joinable=()
 
-  if [[ ${#array[@]} -gt $limit ]] ; then
-    formatted_cwd="$(__join $dir_sep "$fake_root/$truncation" ${array[@]: -$dir_limit:$dir_limit})"
+  if [[ ${#array[@]} -gt $limit ]]; then
+    fake_root="$fake_root/$truncation"
+    joinable=("$fake_root" "${array[@]: -$dir_limit:$dir_limit}")
   else
-    if [[ ${#array[@]} -eq $dir_limit ]]; then
-      formatted_cwd="$(__join $dir_sep $fake_root ${array[@]: -$dir_limit:$dir_limit})"
-    else
-      formatted_cwd="$(__join $dir_sep $fake_root ${array[*]})"
-    fi
+    joinable=("$fake_root" "${array[@]}")
   fi
 
+  formatted_cwd=$(__join $dir_sep "${joinable[@]}")
 
   printf "%s" "${formatted_cwd/#\/\///}"
   return
