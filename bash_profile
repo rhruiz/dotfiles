@@ -39,75 +39,46 @@ function __join {
 function __promptline_cwd {
   local dir_limit=3
   local truncation="⋯ "
-  local first_char=""
-  local part_count=0
+  local fake_root="/"
   local formatted_cwd=""
   local dir_sep="/"
   local tilde="~"
-  local path_to_keep=""
   local start=${1-$PWD}
-  local from_dev=${2-0}
   local cwd=""
 
   if [[ $start == $HOME/dev/*/* ]]; then
-    cwd="${PWD/#$HOME\/dev\//}"
-    IFS='/' read -r -a cwd_parts <<< "$cwd"
-    first_char=""
-
-    if [[ ${#cwd_parts[@]} -gt 1 ]]; then
-      dev_dir="${cwd_parts[1]}"
-      first_char="${dev_dir}"
-      truncation="${dev_dir}/${truncation}"
-      cwd="${cwd/#${cwd_parts[0]}\/$dev_dir/}"
-    else
-      cwd="${PWD/#$HOME/$tilde}"
-
-      if [[ "${cwd}" == "~" ]] ; then
-        first_char="~"
-      else
-        if [[ "${cwd::1}" == "~" ]] ; then
-          first_char="~/"
-          cwd="${cwd/#\~/}"
-        else
-          first_char="/"
-        fi
-      fi
-    fi
+    cwd="${start/#$HOME\/dev\//}"
+    cwd="${cwd#*/}"
+    fake_root="${cwd%%/*}"
   else
-    cwd="${PWD/#$HOME/$tilde}"
+    cwd="${start/#$HOME/$tilde}"
 
-    if [[ "${cwd}" == "~" ]] ; then
-      first_char="~"
-    else
-      if [[ "${cwd::1}" == "~" ]] ; then
-        first_char="~/"
-        cwd="${cwd/#\~/}"
-      else
-        first_char="/"
-      fi
+    if [[ "${cwd::1}" == "~" ]] ; then
+      fake_root="~"
     fi
   fi
+
+  cwd="${cwd/#$fake_root\//}"
+  cwd="${cwd/#$fake_root/}"
 
   IFS='/' read -r -a array <<< "$cwd"
 
-  array=("${array[@]:1}")
+  #array=("${array[@]:1}")
 
-  local limit=$dir_limit
+  local limit=$dir_limit+1
 
   if [[ ${#array[@]} -gt $limit ]] ; then
-    first_char="$truncation/"
-    formatted_cwd="$(__join $dir_sep ${array[@]: -$dir_limit:$dir_limit})"
+    formatted_cwd="$(__join $dir_sep "$fake_root/$truncation" ${array[@]: -$dir_limit:$dir_limit})"
   else
-    if [[ ${#array[@]} -eq $limit ]]; then
-      formatted_cwd="$(__join $dir_sep ${array[@]: -$dir_limit:$dir_limit})"
+    if [[ ${#array[@]} -eq $dir_limit ]]; then
+      formatted_cwd="$(__join $dir_sep $fake_root ${array[@]: -$dir_limit:$dir_limit})"
     else
-      formatted_cwd="$(__join $dir_sep ${array[*]})"
+      formatted_cwd="$(__join $dir_sep $fake_root ${array[*]})"
     fi
   fi
 
-  formatted_cwd="${first_char}${formatted_cwd}"
 
-  printf "%s" "${formatted_cwd/%\//}"
+  printf "%s" "${formatted_cwd/#\/\///}"
   return
 }
 
