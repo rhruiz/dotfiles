@@ -20,6 +20,12 @@ if [ -f /usr/local/etc/bash_completion ] ; then
     source /usr/local/etc/bash_completion
 fi
 
+if [  $(type -t brew) ] ; then
+  if [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
+    . $(brew --prefix)/share/bash-completion/bash_completion
+  fi
+fi
+
 # set -o vi
 
 export LANG="en_US.UTF-8"
