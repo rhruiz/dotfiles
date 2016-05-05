@@ -96,6 +96,7 @@ let g:ctrlp_custom_ignore = {
 
 " airline
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tagbar#enabled = 0 " disable tagbar integration (speed up startup time)
 
 " rainbow parens
 let g:rbpt_colorpairs = [
