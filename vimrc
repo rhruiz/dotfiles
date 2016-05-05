@@ -11,8 +11,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'kien/ctrlp.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plugin 'itchyny/lightline.vim'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'godlygeek/tabular'
 Plugin 'terryma/vim-multiple-cursors'
@@ -94,9 +93,13 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll|class)$',
   \ }
 
-" airline
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tagbar#enabled = 0 " disable tagbar integration (speed up startup time)
+let g:lightline = {
+      \ 'component': {
+      \   'readonly': '%{&readonly?"":""}',
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
 
 " rainbow parens
 let g:rbpt_colorpairs = [
