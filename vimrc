@@ -25,6 +25,7 @@ Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'keith/swift.vim'
 Plugin 'wakatime/vim-wakatime'
+Plugin 'jussi-kalliokoski/harmony.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -51,6 +52,7 @@ set ignorecase
 set smartcase
 
 set number      "add line numbers
+set relativenumber "relative line numbers
 set showbreak=...
 set nowrap
 
