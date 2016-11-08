@@ -26,6 +26,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'keith/swift.vim'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'jussi-kalliokoski/harmony.vim'
+Plugin 'nelstrom/vim-mac-classic-theme'
+Plugin 'altercation/vim-colors-solarized'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
