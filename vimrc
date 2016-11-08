@@ -26,6 +26,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'keith/swift.vim'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'jussi-kalliokoski/harmony.vim'
+Plugin 'rhysd/vim-crystal'
 Plugin 'nelstrom/vim-mac-classic-theme'
 Plugin 'altercation/vim-colors-solarized'
 
@@ -162,6 +163,7 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
+au BufRead,BufNewFile *.jbuilder setf ruby
 au BufRead,BufNewFile *.rabl setf ruby
 au BufRead,BufNewFile *.god setf ruby
 au BufRead,BufNewFile Gemfile setf ruby
