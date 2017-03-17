@@ -103,6 +103,12 @@ if executable("ag")
   let g:ctrlp_use_caching = 0
 endif
 
+if executable("rg")
+  set grepprg=rg\ --vimgrep\ --no-heading
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  let g:ctrlp_use_caching = 0
+endif
+
 let g:lightline = {
       \ 'component': {
       \   'readonly': '%{&readonly?"":""}',
