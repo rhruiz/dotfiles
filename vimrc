@@ -59,6 +59,9 @@ set relativenumber "relative line numbers
 set showbreak=...
 set nowrap
 
+set path+=**
+set wildmenu
+
 "disable visual bell
 set visualbell t_vb=
 
