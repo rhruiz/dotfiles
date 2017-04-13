@@ -154,6 +154,11 @@ if [ -d /usr/local/opt/scala/libexec ]; then
   PATH=$SCALA_HOME/bin:$PATH
 fi
 
+# GO
+
+export GOPATH=$HOME/dev/go
+export PATH=$PATH:$GOPATH/bin
+
 # JAVA
 
 # if [ -x /usr/libexec/java_home ] ; then
