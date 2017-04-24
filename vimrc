@@ -45,6 +45,7 @@ set shiftwidth=2
 set linespace=2
 set guifont=Monaco\ for\ powerline:h13
 set backspace=indent,eol,start
+set cc=80
 
 set showcmd     "show incomplete cmds down the bottom
 set showmode    "show current mode down the bottom
