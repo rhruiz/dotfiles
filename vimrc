@@ -45,7 +45,8 @@ set shiftwidth=2
 set linespace=2
 set guifont=Monaco\ for\ powerline:h13
 set backspace=indent,eol,start
-set cc=80
+set colorcolumn=80,100,120
+highlight ColorColumn ctermbg=lightred guibg=#efefef
 
 set showcmd     "show incomplete cmds down the bottom
 set showmode    "show current mode down the bottom
