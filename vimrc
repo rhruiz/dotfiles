@@ -49,7 +49,11 @@ set softtabstop=2
 set expandtab
 set shiftwidth=2
 set linespace=2
-set guifont=Monaco\ for\ powerline:h13
+
+if has("gui_macvim")
+  set guifont=Monaco\ for\ powerline:h13
+endif
+
 set backspace=indent,eol,start
 set colorcolumn=80,100,120
 highlight ColorColumn ctermbg=lightred guibg=#efefef
