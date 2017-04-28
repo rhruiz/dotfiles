@@ -29,6 +29,7 @@ Plugin 'jussi-kalliokoski/harmony.vim'
 Plugin 'rhysd/vim-crystal'
 Plugin 'nelstrom/vim-mac-classic-theme'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'slashmili/alchemist.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
