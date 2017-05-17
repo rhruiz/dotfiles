@@ -10,6 +10,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+Plugin 'skywind3000/asyncrun.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'derekwyatt/vim-scala'
@@ -188,4 +189,3 @@ au BufRead,BufNewFile *.jbuilder setf ruby
 au BufRead,BufNewFile *.rabl setf ruby
 au BufRead,BufNewFile *.god setf ruby
 au BufRead,BufNewFile Gemfile setf ruby
-
