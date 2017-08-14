@@ -178,3 +178,7 @@ if [ -d $HOME/.bash_profile.d ] ; then
     source $i
   done
 fi
+
+# ERLANG / OTP20
+
+export ERL_AFLAGS="-kernel shell_history enabled"
