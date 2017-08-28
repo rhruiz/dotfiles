@@ -32,6 +32,8 @@ values."
    dotspacemacs-configuration-layers
    '(
      (osx :variables osx-use-option-as-meta nil)
+     python
+     html
      yaml
      javascript
      elixir
@@ -53,9 +55,9 @@ values."
                wakatime-cli-path "/usr/local/bin/wakatime")
      ;; markdown
      ;; org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
+     (shell :variables
+            shell-default-height 30
+            shell-default-position 'bottom)
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
@@ -320,6 +322,9 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+    (require 'whitespace)
+    (setq whitespace-style '(face empty tabs lines-tail trailing))
+    (global-whitespace-mode t)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -329,9 +334,14 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default)))
+ '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (reveal-in-osx-finder pbcopy osx-trash osx-dictionary launchctl wakatime-mode noflet ensime sbt-mode scala-mode yaml-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode ob-elixir flycheck-mix flycheck-credo flycheck alchemist elixir-mode mmm-mode markdown-toc markdown-mode gh-md unfill smeargle orgit mwim magit-gitflow helm-gitignore helm-company helm-c-yasnippet gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fuzzy evil-magit magit magit-popup git-commit with-editor company-statistics auto-yasnippet yasnippet ac-ispell auto-complete rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest company chruby bundler inf-ruby ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
+    (ac-ispell ace-jump-helm-line ace-link ace-window adaptive-wrap aggressive-indent alchemist anaconda-mode anzu async auto-compile auto-complete auto-highlight-symbol auto-yasnippet avy bind-key bind-map bundler chruby clean-aindent-mode coffee-mode column-enforce-mode company company-anaconda company-statistics company-tern company-web cython-mode dash dash-functional define-word diminish dumb-jump elisp-slime-nav elixir-mode emmet-mode ensime epl eval-sexp-fu evil evil-anzu evil-args evil-ediff evil-escape evil-exchange evil-iedit-state evil-indent-plus evil-lisp-state evil-magit evil-matchit evil-mc evil-nerd-commenter evil-numbers evil-search-highlight-persist evil-surround evil-tutor evil-unimpaired evil-visual-mark-mode evil-visualstar exec-path-from-shell expand-region eyebrowse f fancy-battery fill-column-indicator flx flx-ido flycheck flycheck-credo flycheck-mix fuzzy gh-md git-commit git-link git-messenger git-timemachine gitattributes-mode gitconfig-mode gitignore-mode golden-ratio google-translate goto-chg haml-mode helm helm-ag helm-c-yasnippet helm-company helm-core helm-css-scss helm-descbinds helm-flx helm-gitignore helm-make helm-mode-manager helm-projectile helm-pydoc helm-swoop helm-themes help-fns+ hide-comnt highlight highlight-indentation highlight-numbers highlight-parentheses hl-todo hungry-delete hy-mode hydra iedit indent-guide inf-ruby info+ js-doc js2-mode js2-refactor json-mode json-reformat json-snatcher launchctl less-css-mode link-hint linum-relative live-py-mode livid-mode lorem-ipsum macrostep magit magit-gitflow magit-popup markdown-mode markdown-toc minitest mmm-mode move-text multiple-cursors mwim neotree noflet ob-elixir open-junk-file org-bullets org-plus-contrib orgit osx-dictionary osx-trash packed paradox parent-mode pbcopy pcre2el persp-mode pip-requirements pkg-info popup popwin powerline projectile pug-mode py-isort pyenv-mode pytest pythonic pyvenv rainbow-delimiters rake rbenv request restart-emacs reveal-in-osx-finder robe rspec-mode rubocop ruby-test-mode ruby-tools rvm s sass-mode sbt-mode scala-mode scss-mode simple-httpd skewer-mode slim-mode smartparens smeargle spaceline spinner tagedit tern toc-org undo-tree unfill use-package uuidgen vi-tilde-fringe volatile-highlights wakatime-mode web-beautify web-completion-data web-mode which-key winum with-editor ws-butler yaml-mode yapfify yasnippet)))
+  '(wakatime-python-bin nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
