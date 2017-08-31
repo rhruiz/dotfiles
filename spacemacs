@@ -324,6 +324,7 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
     (require 'whitespace)
     (setq whitespace-style '(face empty tabs lines-tail trailing))
+    (require 'evil-multiedit)
     (global-whitespace-mode t)
     (evil-multiedit-default-keybinds)
   )
