@@ -328,7 +328,12 @@ you should place your code here."
     (require 'evil-multiedit)
     (global-whitespace-mode t)
     (evil-multiedit-default-keybinds)
-  )
+    (exec-path-from-shell-copy-env "PATH")
+    (add-hook 'alchemist-mode-hook 'company-mode)
+    (add-hook 'elixir-mode-hook
+            (function (lambda ()
+                        (setq evil-shift-width elixir-smie-indent-basic))))
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
