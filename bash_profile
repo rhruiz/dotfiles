@@ -95,17 +95,11 @@ function _ssh_prompt() {
   fi
 }
 
-function _docker_prompt() {
-  if [[ "$DOCKER_HOST" != "" ]]; then
-    printf "%s" "🐳"
-  fi
-}
 
 function _exit_status() {
   if [[ "$1" != "0" ]] ; then
     printf "%s" "💩"
   fi
-
 }
 
 # PROMPT=$'%n%{\e[0;38m%]}@%{\e[01;34m%]}%m%{\e[0;37m%]}:%{\e[1;37m%]}%~%{\e[0;37m%]}%{\e[0m%]}%(#.#.$) '
@@ -124,14 +118,14 @@ function __prompt_command() {
   local bold="\[$(tput bold)\]"
 
   local git_prompt=$(__git_ps1 "${red_fg}(%s) ")
-  local left_side=($(_ssh_prompt) $(_docker_prompt) $(_exit_status $last_exit_code))
+  local left_side=($(_ssh_prompt) $(_exit_status $last_exit_code))
 
   local left_side_prompt=""
   [[ "$(__join "" ${left_side[*]})" != "" ]] && left_side_prompt="$(__join " " ${left_side[*]})  "
 
   PS1="${left_side_prompt}${bold}${blue_fg}$(__promptline_cwd)${git_prompt}${reset} ➜ "
   PS1="${left_side_prompt}${git_prompt}${bold}${blue_fg}$(__promptline_cwd)> ${reset}"
-
+  PS1="${left_side_prompt}${git_prompt}${bold}${blue_fg}$(__promptline_cwd)> ${reset}"
 }
 
 export PROMPT_COMMAND="__prompt_command${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
