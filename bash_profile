@@ -121,11 +121,11 @@ function __prompt_command() {
   local left_side=($(_ssh_prompt) $(_exit_status $last_exit_code))
 
   local left_side_prompt=""
-  [[ "$(__join "" ${left_side[*]})" != "" ]] && left_side_prompt="$(__join " " ${left_side[*]})  "
+  [[ "$(__join '' ${left_side[*]})" != "" ]] && left_side_prompt="$(__join " " ${left_side[*]}) "
 
   PS1="${left_side_prompt}${bold}${blue_fg}$(__promptline_cwd)${git_prompt}${reset} ➜ "
   PS1="${left_side_prompt}${git_prompt}${bold}${blue_fg}$(__promptline_cwd)> ${reset}"
-  PS1="${left_side_prompt}${git_prompt}${bold}${blue_fg}$(__promptline_cwd)> ${reset}"
+  PS1="${left_side_prompt}${git_prompt}${bold}${blue_fg}$(__promptline_cwd)${reset} ➔ ${reset}"
 }
 
 export PROMPT_COMMAND="__prompt_command${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
