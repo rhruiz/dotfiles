@@ -37,6 +37,7 @@ alias ls='ls -G'
 
 alias rspec="bundle exec rspec"
 alias rake="bundle exec rake"
+alias irb++="(rbenv shell 2.4.1; irb -r active_support/all -rpp)"
 
 function __join {
   local IFS="$1"; shift; echo "$*"
