@@ -320,6 +320,8 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
     (setq mac-function-modifier 'meta)
+    (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+    (add-to-list 'default-frame-alist '(ns-appearance . light))
   )
 
 (defun dotspacemacs/user-config ()
