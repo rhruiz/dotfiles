@@ -35,7 +35,7 @@ values."
      csv
      erlang
      go
-     (osx :variables osx-use-option-as-meta nil)
+     ;; (osx :variables osx-use-option-as-meta nil)
      python
      html
      yaml
@@ -319,7 +319,9 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+    (setq mac-command-modifier 'meta)
     (setq mac-function-modifier 'meta)
+    (setq mac-option-modifier nil)
     (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
     (add-to-list 'default-frame-alist '(ns-appearance . light))
   )
