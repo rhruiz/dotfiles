@@ -345,6 +345,24 @@ you should place your code here."
                                      (setq fci-rule-column 98)
                                      (set (make-local-variable 'whitespace-line-column) 98)))
     (exec-path-from-shell-copy-env "PATH")
+    (global-set-key (kbd "M-=") 'spacemacs/scale-up-font)
+    (global-set-key (kbd "M--") 'spacemacs/scale-down-font)
+    (global-set-key (kbd "M-0") 'spacemacs/reset-font-size)
+    (global-set-key (kbd "M-q") 'save-buffers-kill-terminal)
+    (global-set-key (kbd "M-v") 'yank)
+    (global-set-key (kbd "M-c") 'evil-yank)
+    (global-set-key (kbd "M-a") 'mark-whole-buffer)
+    (global-set-key (kbd "M-x") 'kill-region)
+    (global-set-key (kbd "M-w") 'delete-window)
+    (global-set-key (kbd "M-W") 'delete-frame)
+    (global-set-key (kbd "M-n") 'make-frame)
+    (global-set-key (kbd "M-z") 'undo-tree-undo)
+    (global-set-key (kbd "M-Z") 'undo-tree-redo)
+    ;; Use the OS X Emoji font for Emoticons
+    (when (fboundp 'set-fontset-font)
+      (set-fontset-font "fontset-default"
+                        '(#x1F600 . #x1F64F)
+                        (font-spec :name "Apple Color Emoji") nil 'prepend))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
