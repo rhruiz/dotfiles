@@ -196,3 +196,7 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 ## Transmission
 defaults write org.m0k.transmission WarningDonate -bool false
 defaults write org.m0k.transmission WarningLegal -bool false
+
+# Emacs
+defaults write org.gnu.Emacs AppleFontSmoothing -int 2
+defaults write org.gnu.Emacs FontBackend ns
