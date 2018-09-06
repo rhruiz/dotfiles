@@ -336,12 +336,16 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
     (require 'whitespace)
     (require 'helm-bookmark)
-    (require 'tramp)
     (setq whitespace-style '(face empty tabs lines-tail trailing))
     (require 'evil-multiedit)
     (global-whitespace-mode t)
     (evil-multiedit-default-keybinds)
     (add-hook 'prog-mode-hook 'fci-mode)
+    (add-hook 'go-mode-hook '(setq tab-width 2))
+    (defun web-mode-identation ()
+      "Set identation to two spaces on web mode"
+      (setq web-mode-markup-indent-offset 2))
+    (add-hook 'web-mode-hook 'web-mode-identation)
     (add-to-list 'elixir-mode-hook (defun set-98-column-limit-for-elixir-mode ()
                                      (setq fci-rule-column 98)
                                      (set (make-local-variable 'whitespace-line-column) 98)))
