@@ -200,3 +200,6 @@ defaults write org.m0k.transmission WarningLegal -bool false
 # Emacs
 defaults write org.gnu.Emacs AppleFontSmoothing -int 2
 defaults write org.gnu.Emacs FontBackend ns
+
+# Mojave font smoothing
+defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
