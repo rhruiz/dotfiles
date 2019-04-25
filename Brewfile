@@ -9,4 +9,6 @@ tap "homebrew/cask"
 tap "caskroom/fonts"
 cask "font-hack"
 
-brew "bash"
+tap "railwaycat/emacsmacport"
+cask "emacs-mac"
+
