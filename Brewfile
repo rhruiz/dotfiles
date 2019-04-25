@@ -12,3 +12,4 @@ cask "font-hack"
 tap "railwaycat/emacsmacport"
 cask "emacs-mac"
 
+cask "google-chrome"
