@@ -12,4 +12,7 @@ cask "font-hack"
 tap "railwaycat/emacsmacport"
 cask "emacs-mac"
 
+cask "transmission"
 cask "google-chrome"
+cask "flux"
+cask "kodi"
