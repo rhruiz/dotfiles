@@ -19,8 +19,14 @@ cask "google-chrome"
 cask "flux"
 cask "kodi"
 
+mas "Telephone", id: 406825478
+
+# letsencrypt
+
+brew "certbot"
+
 # keyboard/qmk
-#
+
 tap "osx-cross/avr"
 tap "PX4/homebrew-px4"
 brew "avr-gcc@7", link: true, conflicts_with: ["avr-gcc"]
