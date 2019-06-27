@@ -5,6 +5,7 @@ cask_args appdir: "/Applications"
 brew "bash"
 brew "ripgrep"
 brew "git"
+brew "wget"
 
 tap "homebrew/cask"
 
