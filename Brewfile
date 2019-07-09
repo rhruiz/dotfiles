@@ -35,3 +35,7 @@ brew "gcc-arm-none-eabi"
 brew "dfu-programmer"
 brew "avrdude"
 brew "dfu-util"
+
+tap "homebrew/cask-drivers"
+cask "qmk-toolbox"
+
