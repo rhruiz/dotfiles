@@ -343,8 +343,12 @@ you should place your code here."
     (evil-multiedit-default-keybinds)
     (add-hook 'prog-mode-hook 'fci-mode)
     (add-hook 'go-mode-hook '(setq tab-width 2))
-    (add-hook 'elixir-mode-hook
-              (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
+    (add-hook 'elixir-format-hook (lambda ()
+                                   (if (projectile-project-p)
+                                    (setq elixir-format-arguments
+                                     (list "--dot-formatter"
+                                      (concat (locate-dominating-file buffer-file-name ".formatter.exs") ".formatter.exs")))
+                                   (setq elixir-format-arguments nil))))
     (defun web-mode-identation ()
       "Set identation to two spaces on web mode"
       (setq web-mode-markup-indent-offset 2))
