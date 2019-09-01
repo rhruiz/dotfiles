@@ -30,11 +30,13 @@ brew "certbot"
 
 tap "osx-cross/avr"
 tap "PX4/homebrew-px4"
-brew "avr-gcc@7", link: true, conflicts_with: ["avr-gcc"]
+brew "avr-gcc@8", link: true, conflicts_with: ["avr-gcc"]
 brew "gcc-arm-none-eabi"
 brew "dfu-programmer"
 brew "avrdude"
 brew "dfu-util"
+brew "clang-format"
+brew "python3"
 
 tap "homebrew/cask-drivers"
 cask "qmk-toolbox"
