@@ -77,6 +77,8 @@ set nowrap
 set path+=**
 set wildmenu
 
+set title "set terminal title
+
 "disable visual bell
 set visualbell t_vb=
 
