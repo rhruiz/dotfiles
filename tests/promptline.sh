@@ -1,7 +1,7 @@
 #!/bin/bash
 
 . $( dirname "${BASH_SOURCE[0]}" )/assert.sh
-. $( dirname "${BASH_SOURCE[0]}" )/../bash_profile
+. $( dirname "${BASH_SOURCE[0]}" )/../bash/bash_profile
 
 truncation="⋯ "
 
