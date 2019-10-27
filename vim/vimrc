@@ -10,6 +10,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+Plugin 'liuchengxu/space-vim-theme'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'itchyny/lightline.vim'
@@ -42,7 +43,7 @@ filetype plugin indent on    " required
 
 if has("gui_macvim")
   " macvim_skip_colorscheme
-  colorscheme macvim
+  colorscheme space_vim_theme
 endif
 
 set bg=light
