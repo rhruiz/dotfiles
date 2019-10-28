@@ -41,11 +41,6 @@ filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 
-if has("gui_macvim")
-  " macvim_skip_colorscheme
-  colorscheme space_vim_theme
-endif
-
 set bg=light
 syntax on
 set tabstop=2
@@ -54,8 +49,10 @@ set expandtab
 set shiftwidth=2
 set linespace=2
 
-if has("gui_macvim")
+if has("gui_running")
   set guifont=Hack:h15
+  " macvim_skip_colorscheme
+  colorscheme space_vim_theme
 endif
 
 set backspace=indent,eol,start
