@@ -203,3 +203,6 @@ defaults write org.gnu.Emacs FontBackend ns
 
 # Mojave font smoothing
 defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
+
+# Do not wakeup during sleep for no reason
+sudo pmset -a darkwakes 0
