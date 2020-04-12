@@ -17,6 +17,7 @@ cask "emacs-mac"
 cask "macvim"
 
 cask "transmission"
+cask "telegram"
 cask "google-chrome"
 cask "flux"
 cask "kodi"
