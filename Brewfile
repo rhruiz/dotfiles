@@ -6,6 +6,7 @@ brew "bash"
 brew "ripgrep"
 brew "git"
 brew "wget"
+brew "pv"
 
 tap "homebrew/cask"
 
