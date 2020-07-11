@@ -4,6 +4,7 @@ cask_args appdir: "/Applications"
 
 brew "bash"
 brew "ripgrep"
+brew "jq"
 brew "git"
 brew "git-gui"
 brew "wget"
