@@ -9,14 +9,19 @@ brew "git"
 brew "git-gui"
 brew "wget"
 brew "pv"
+brew "coreutils"
+brew "fd"
 
 tap "homebrew/cask"
 
 tap "caskroom/fonts"
 cask "font-hack"
 
+# tap "d12frosted/emacs-plus"
+# cask "emacs-plus"
 tap "railwaycat/emacsmacport"
 cask "emacs-mac"
+
 cask "macvim"
 
 cask "transmission"
