@@ -9,8 +9,11 @@ brew "git"
 brew "git-gui"
 brew "wget"
 brew "pv"
+
+# for doom emacs
 brew "coreutils"
 brew "fd"
+brew "multimarkdown"
 
 tap "homebrew/cask"
 
