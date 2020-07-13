@@ -113,7 +113,7 @@ function _exit_status() {
 function __prompt_command() {
   local last_exit_code="$?"
 
-  local reset="\[$(tput op)\]"
+  local reset="\[$(tput sgr0)\]"
   local blue_fg="\[$(tput setaf 4)\]"
   local red_fg="\[$(tput setaf 1)\]"
   local bold="\[$(tput bold)\]"

@@ -1,44 +1,47 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
-Plugin 'liuchengxu/space-vim-theme'
-Plugin 'skywind3000/asyncrun.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'itchyny/lightline.vim'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'rust-lang/rust.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-vinegar'
-Plugin 'tpope/vim-surround'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'rking/ag.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'keith/swift.vim'
-Plugin 'wakatime/vim-wakatime'
-Plugin 'jussi-kalliokoski/harmony.vim'
-Plugin 'rhysd/vim-crystal'
-Plugin 'nelstrom/vim-mac-classic-theme'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'slashmili/alchemist.vim'
-Plugin 'tpope/vim-commentary'
-Plugin 'dyng/ctrlsf.vim'
+Plug 'rakr/vim-one'
+Plug 'dracula/vim'
+Plug 'liuchengxu/space-vim-theme'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'derekwyatt/vim-scala'
+Plug 'rust-lang/rust.vim'
+Plug 'godlygeek/tabular'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-surround'
+Plug 'elixir-lang/vim-elixir'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'rking/ag.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'keith/swift.vim'
+Plug 'wakatime/vim-wakatime'
+Plug 'jussi-kalliokoski/harmony.vim'
+Plug 'rhysd/vim-crystal'
+Plug 'nelstrom/vim-mac-classic-theme'
+Plug 'altercation/vim-colors-solarized'
+Plug 'slashmili/alchemist.vim'
+Plug 'tpope/vim-commentary'
+Plug 'dyng/ctrlsf.vim'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()
+
+filetype plugin indent on
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 
