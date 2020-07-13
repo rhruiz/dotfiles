@@ -129,11 +129,16 @@ function __prompt_command() {
   PS1="${left_side_prompt}${git_prompt}${bold}${blue_fg}$(__promptline_cwd)${reset} ➔ ${reset}"
 }
 
-export PROMPT_COMMAND="__prompt_command${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
+export PROMPT_COMMAND="__prompt_command${PROMPT_COMMAND:+; $PROMPT_COMMAND}${reset}"
 
 if [ ! -n "$(type -t update_terminal_cwd)" ]; then
   if [ -f /etc/bashrc_Apple_Terminal ] ; then
     source /etc/bashrc_Apple_Terminal
+  fi
+  if [ ! -n "$(type -t update_terminal_cwd)" ]; then
+    function update_terminal_cwd {
+      echo -n ""
+    }
   fi
 fi
 
