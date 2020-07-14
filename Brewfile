@@ -9,6 +9,7 @@ brew "git"
 brew "git-gui"
 brew "wget"
 brew "pv"
+brew "inetutils", link: true
 
 # for doom emacs
 brew "coreutils"
