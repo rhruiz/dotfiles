@@ -28,6 +28,14 @@ assert "__promptline_cwd $HOME/dev/category/project/one/two/three" "project/one/
 assert "__promptline_cwd $HOME/dev/category/project/one/two/three/four" "project/one/two/three/four"
 assert "__promptline_cwd $HOME/dev/category/project/one/two/three/four/five" "project/$truncation/three/four/five"
 
+# $HOME/repos/scm/team/project should act like a root
+assert "__promptline_cwd $HOME/repos/github.com/category/project" "project"
+assert "__promptline_cwd $HOME/repos/github.com/category/project/one" "project/one"
+assert "__promptline_cwd $HOME/repos/github.com/category/project/one/two" "project/one/two"
+assert "__promptline_cwd $HOME/repos/github.com/category/project/one/two/three" "project/one/two/three"
+assert "__promptline_cwd $HOME/repos/github.com/category/project/one/two/three/four" "project/one/two/three/four"
+assert "__promptline_cwd $HOME/repos/github.com/category/project/one/two/three/four/five" "project/$truncation/three/four/five"
+
 # regressions
 
 assert "__promptline_cwd \"$HOME/Library/Application Support\"" "~/Library/Application Support"

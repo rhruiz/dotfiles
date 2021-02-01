@@ -57,6 +57,10 @@ function __promptline_cwd {
     cwd="${start/#$HOME\/dev\//}"
     cwd="${cwd#*/}"
     fake_root="${cwd%%/*}"
+  elif [[ $start == $HOME/repos/*/*/* ]]; then
+    cwd="${start/#$HOME\/repos\//}"
+    cwd="${cwd#*/*/}"
+    fake_root="${cwd%%/*}"
   else
     cwd="${start/#$HOME/$tilde}"
 
