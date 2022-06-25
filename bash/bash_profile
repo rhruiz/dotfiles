@@ -188,3 +188,4 @@ fi
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 export PATH="$HOME/.cargo/bin:$PATH"
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
