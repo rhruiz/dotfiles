@@ -1,6 +1,9 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+" set bg=dark
+set t_Co=256
+
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -18,7 +21,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'derekwyatt/vim-scala'
 Plug 'rust-lang/rust.vim'
 Plug 'godlygeek/tabular'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
 Plug 'elixir-lang/vim-elixir'
@@ -45,7 +48,7 @@ filetype plugin indent on
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 
-set bg=light
+" set bg=light
 syntax on
 set tabstop=2
 set softtabstop=2
@@ -53,15 +56,24 @@ set expandtab
 set shiftwidth=2
 set linespace=2
 
+if $TERM_PROGRAM == "iTerm.app"
+  if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+    colorscheme one
+  endif
+endif
+
 if has("gui_running")
-  set guifont=Hack:h15
+  set guifont=Hack-Bold:h15
   " macvim_skip_colorscheme
-  colorscheme space_vim_theme
+  colorscheme one
 endif
 
 set backspace=indent,eol,start
 set colorcolumn=80,100,120
-highlight ColorColumn ctermbg=lightred guibg=#efefef
+" highlight ColorColumn ctermbg=lightred guibg=#efefef
 
 set showcmd     "show incomplete cmds down the bottom
 set showmode    "show current mode down the bottom
@@ -135,6 +147,7 @@ let g:lightline = {
       \ 'component': {
       \   'readonly': '%{&readonly?"":""}',
       \ },
+      \ 'colorscheme': 'default',
       \ 'component_function': {
       \   'fugitive': 'LightLineFugitive',
       \ },
