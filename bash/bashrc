@@ -1,15 +1,5 @@
 #!/bin/bash
 
-if [ -f /etc/bashrc ]; then
-    source /etc/bashrc
-fi
-
-if [ ! -n "$(type -t update_terminal_cwd)" ] ; then
-  if [ -f /etc/bashrc_Apple_Terminal ] ; then
-    source /etc/bashrc_Apple_Terminal
-  fi
-fi
-
 if [ -d $HOME/.bash_completion.d ] ; then
   for i in $HOME/.bash_completion.d/* ; do
     source $i
