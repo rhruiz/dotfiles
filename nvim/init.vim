@@ -111,7 +111,7 @@ let g:lightline = {
       \ },
       \ 'colorscheme': 'default',
       \ 'component_function': {
-      \   'fugitive': 'LightLineFugitive',
+      \   'fugitive': 'FugitiveHead'
       \ },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
