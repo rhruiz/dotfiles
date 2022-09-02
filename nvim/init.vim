@@ -65,7 +65,7 @@ set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 set laststatus=2
 
-nnoremap <C-p> :FZF<CR>
+nnoremap <C-p> :GFiles<CR>
 nnoremap <C-b> :FZFMru<CR>
 
 "
