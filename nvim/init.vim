@@ -83,6 +83,8 @@ require'nvim-treesitter.configs'.setup {
 }
 END
 
+let g:ruby_host_prog = '/usr/local/lib/ruby/gems/3.1.0/bin/neovim-ruby-host'
+
 let g:fzf_layout = { 'down': '40%' }
 
 let g:fzf_colors =
