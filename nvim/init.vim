@@ -19,13 +19,28 @@ Plug 'pbogut/fzf-mru.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+" colorschemes
+Plug 'joshdick/onedark.vim'
+Plug 'romgrk/doom-one.vim'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
+
 call plug#end()
+
+if (!empty($ITERM_PROFILE))
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+  let g:doom_one_terminal_colors = v:true
+  set bg=dark
+  colorscheme onehalfdark
+else
+  set bg=light
+endif
 
 filetype plugin indent on
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 
-set bg=light
 syntax on
 set tabstop=2
 set softtabstop=2
