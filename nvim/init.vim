@@ -18,11 +18,13 @@ Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'ryanoasis/vim-devicons'
 
 " colorschemes
 Plug 'joshdick/onedark.vim'
 Plug 'romgrk/doom-one.vim'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'rakr/vim-one'
 
 call plug#end()
 
@@ -126,9 +128,11 @@ let g:lightline = {
       \ 'component': {
       \   'readonly': '%{&readonly?"":""}',
       \ },
-      \ 'colorscheme': 'default',
+      \ 'colorscheme': 'onehalfdark',
       \ 'component_function': {
-      \   'fugitive': 'FugitiveHead'
+      \   'fugitive': 'FugitiveHead',
+      \   'filetype': 'MyFiletype',
+      \   'fileformat': 'MyFileformat',
       \ },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
@@ -142,6 +146,14 @@ let g:lightline = {
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' }
       \ }
+
+function! MyFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+
+function! MyFileformat()
+  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
 
 function! LightLineFugitive()
   try
