@@ -156,9 +156,4 @@ fi
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 
-# Rust
-
-export PATH="$HOME/.cargo/bin:$PATH"
-
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
