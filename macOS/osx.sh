@@ -60,6 +60,7 @@ defaults write com.apple.screensaver askForPasswordDelay -int 5
 
 # Enable subpixel font rendering on non-Apple LCDs
 defaults write NSGlobalDomain AppleFontSmoothing -int 2
+# defaults -currentHost write -globalDomain AppleFontSmoothing -int 3
 
 # Enable HiDPI display modes (requires restart)
 sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
