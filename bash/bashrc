@@ -119,12 +119,17 @@ function __prompt_command() {
   local left_side_prompt=""
   [[ "$(__join '' ${left_side[*]})" != "" ]] && left_side_prompt="$(__join " " ${left_side[*]}) "
 
-  PS1="${left_side_prompt}${bold}${blue_fg}$(__promptline_cwd)${git_prompt}${reset} ➜ "
-  PS1="${left_side_prompt}${git_prompt}${bold}${blue_fg}$(__promptline_cwd)> ${reset}"
-  PS1="${left_side_prompt}${git_prompt}${bold}${blue_fg}$(__promptline_cwd)${reset} ➔ ${reset}"
+  # PS1="${left_side_prompt}${bold}${blue_fg}$(__promptline_cwd)${git_prompt}${reset} ➜ "
+  # PS1="${left_side_prompt}${git_prompt}${bold}${blue_fg}$(__promptline_cwd)> ${reset}"
+  # PS1="${left_side_prompt}${git_prompt}${bold}${blue_fg}$(__promptline_cwd)${reset} ➔ ${reset}"
+  PS1="${left_side_prompt}${git_prompt}${bold}${blue_fg}$(__promptline_cwd)${reset} » ${reset}"
 }
 
 export PROMPT_COMMAND="__prompt_command${PROMPT_COMMAND:+; $PROMPT_COMMAND}${reset}"
+
+if [[ "$TERM_PROGRAM" == "WarpTerminal" ]]; then
+  export PROMPT_COMMAND=""
+fi
 
 if [ ! -n "$(type -t update_terminal_cwd)" ]; then
   if [ -f /etc/bashrc_Apple_Terminal ] ; then
