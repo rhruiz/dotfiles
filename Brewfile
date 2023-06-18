@@ -2,39 +2,30 @@
 
 cask_args appdir: "/Applications"
 
-brew "bash"
-brew "ripgrep"
-brew "jq"
-brew "git"
-brew "git-gui"
-brew "wget"
-brew "pv"
-brew "inetutils", link: true
-
-# for doom emacs
-brew "coreutils"
-brew "fd"
-brew "multimarkdown"
+# taps
 
 tap "homebrew/cask"
-
 tap "caskroom/fonts"
-cask "font-hack"
+tap "qmk/qmk"
 
-# tap "d12frosted/emacs-plus"
-# cask "emacs-plus"
-tap "railwaycat/emacsmacport"
-cask "emacs-mac"
+brew "bash"
+brew "fzf"
+brew "git"
+brew "git-gui"
+brew "inetutils", link: true
+brew "jq"
+brew "neovim"
+brew "pv"
+brew "ripgrep"
+brew "tmux"
+brew "wget"
 
-cask "macvim"
-
-cask "transmission"
-cask "telegram"
+# cask "transmission"
+# cask "telegram" # todo: mac app store
 cask "google-chrome"
 cask "flux"
 cask "kodi"
-
-mas "Telephone", id: 406825478
+cask "font-hack"
 
 # letsencrypt
 
@@ -42,16 +33,5 @@ brew "certbot"
 
 # keyboard/qmk
 
-tap "osx-cross/avr"
-tap "PX4/homebrew-px4"
-brew "avr-gcc@8", link: true, conflicts_with: ["avr-gcc"]
-brew "gcc-arm-none-eabi"
-brew "dfu-programmer"
-brew "avrdude"
-brew "dfu-util"
-brew "clang-format"
-brew "python3"
-
-tap "homebrew/cask-drivers"
+brew "qmk"
 cask "qmk-toolbox"
-
