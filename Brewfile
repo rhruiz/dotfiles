@@ -5,6 +5,7 @@ cask_args appdir: "/Applications"
 # taps
 
 tap "homebrew/cask"
+tap "homebrew/cask-versions"
 tap "caskroom/fonts"
 tap "qmk/qmk"
 
@@ -21,8 +22,10 @@ brew "tmux"
 brew "wget"
 
 # cask "transmission"
-# cask "telegram" # todo: mac app store
-cask "google-chrome"
+
+mas "Telegram", id: 747648890
+cask "whatsapp-beta"
+cask "google-chrome-beta"
 cask "flux"
 cask "kodi"
 cask "font-hack"
