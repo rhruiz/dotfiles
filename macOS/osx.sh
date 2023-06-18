@@ -59,7 +59,7 @@ defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 5
 
 # Enable subpixel font rendering on non-Apple LCDs
-defaults write NSGlobalDomain AppleFontSmoothing -int 2
+# defaults write NSGlobalDomain AppleFontSmoothing -int 2
 # defaults -currentHost write -globalDomain AppleFontSmoothing -int 3
 
 # Enable HiDPI display modes (requires restart)
@@ -199,11 +199,11 @@ defaults write org.m0k.transmission WarningDonate -bool false
 defaults write org.m0k.transmission WarningLegal -bool false
 
 # Emacs
-defaults write org.gnu.Emacs AppleFontSmoothing -int 2
-defaults write org.gnu.Emacs FontBackend ns
+# defaults write org.gnu.Emacs AppleFontSmoothing -int 2
+# defaults write org.gnu.Emacs FontBackend ns
 
 # Mojave font smoothing
-defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
+# defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
 
 # Do not wakeup during sleep for no reason
 sudo pmset -a darkwakes 0
