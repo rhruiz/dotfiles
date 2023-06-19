@@ -6,7 +6,7 @@ cask_args appdir: "/Applications"
 
 tap "homebrew/cask"
 tap "homebrew/cask-versions"
-tap "caskroom/fonts"
+tap "homebrew/cask-fonts"
 tap "qmk/qmk"
 
 brew "bash"
@@ -21,14 +21,16 @@ brew "ripgrep"
 brew "tmux"
 brew "wget"
 
-# cask "transmission"
-
-mas "Telegram", id: 747648890
-cask "whatsapp-beta"
+cask "font-hack-nerd-font"
+cask "iterm2"
 cask "google-chrome-beta"
 cask "flux"
-cask "kodi"
-cask "font-hack"
+
+# cask "transmission"
+# cask "kodi"
+
+cask "whatsapp-alpha"
+# mas "Telegram", id: 747648890
 
 # letsencrypt
 
