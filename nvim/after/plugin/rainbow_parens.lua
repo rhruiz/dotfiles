@@ -22,7 +22,9 @@ vim.g.rbpt_colorpairs = {
     { 'red',         'firebrick3' },
 }
 
-autocmd('VimEnter', { pattern = '*', command = 'RainbowParenthesesToggle' })
-autocmd('Syntax', { pattern = '*', command = 'RainbowParenthesesLoadRound' })
-autocmd('Syntax', { pattern = '*', command = 'RainbowParenthesesLoadSquare' })
-autocmd('Syntax', { pattern = '*', command = 'RainbowParenthesesLoadBraces' })
+if vim.fn.exists(':RainbowParenthesesToggle') then
+    autocmd('VimEnter', { pattern = '*', command = 'RainbowParenthesesToggle' })
+    autocmd('Syntax', { pattern = '*', command = 'RainbowParenthesesLoadRound' })
+    autocmd('Syntax', { pattern = '*', command = 'RainbowParenthesesLoadSquare' })
+    autocmd('Syntax', { pattern = '*', command = 'RainbowParenthesesLoadBraces' })
+end
