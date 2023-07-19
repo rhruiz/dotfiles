@@ -30,6 +30,7 @@ export EDITOR="nvim"
 alias ls='ls -G'
 alias dim=nvim
 alias lastag='git tag -l --sort=-creatordate v\* | head -1'
+alias eu=whois
 
 function __join {
   local IFS="$1"; shift; echo "$*"
