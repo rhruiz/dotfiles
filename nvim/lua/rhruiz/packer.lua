@@ -24,7 +24,7 @@ return require('packer').startup(function(use)
   use { 'junegunn/fzf', run = './install --bin' }
   use 'junegunn/fzf.vim'
   use 'pbogut/fzf-mru.vim'
-  use 'elixir-lang/vim-elixir'
+  use({ "elixir-tools/elixir-tools.nvim", tag = "stable", requires = { "nvim-lua/plenary.nvim" }})
   use 'github/copilot.vim'
 
   -- colorschemes
