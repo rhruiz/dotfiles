@@ -25,7 +25,8 @@ return require('packer').startup(function(use)
   use 'junegunn/fzf.vim'
   use 'pbogut/fzf-mru.vim'
   use 'elixir-lang/vim-elixir'
-  use 'github/copilot.vim'
+  -- use 'github/copilot.vim'
+  use { "zbirenbaum/copilot.lua" }
 
   -- colorschemes
   use 'joshdick/onedark.vim'
