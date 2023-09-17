@@ -1,7 +1,7 @@
 require('copilot').setup({
   panel = {
     enabled = true,
-    auto_refresh = false,
+    auto_refresh = true,
     keymap = {
       jump_prev = "[[",
       jump_next = "]]",
@@ -29,7 +29,7 @@ require('copilot').setup({
   },
   filetypes = {
     yaml = false,
-    markdown = false,
+    markdown = true,
     help = false,
     gitcommit = false,
     gitrebase = false,
