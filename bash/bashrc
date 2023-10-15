@@ -160,7 +160,7 @@ fi
 
 # GO
 
-export GOHOME=$HOME/dev/go
+export GOPATH=$HOME/dev/go
 
 # ERLANG / OTP20
 
