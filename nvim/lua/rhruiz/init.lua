@@ -5,6 +5,7 @@ inUtterDarkness = function()
 end
 
 require("rhruiz/packer")
+pcall(function() require("rhruiz/local_settings") end)
 require("rhruiz/settings")
 require("rhruiz/remap")
 require("rhruiz/ruby")
