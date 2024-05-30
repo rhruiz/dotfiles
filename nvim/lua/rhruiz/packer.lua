@@ -26,8 +26,7 @@ return require('packer').startup(function(use)
   use 'pbogut/fzf-mru.vim'
   use({ "elixir-tools/elixir-tools.nvim", tag = "stable", requires = { "nvim-lua/plenary.nvim" }})
   use 'github/copilot.vim'
-  -- use 'github/copilot.vim'
-  use { "zbirenbaum/copilot.lua" }
+  -- use { "zbirenbaum/copilot.lua" }
 
   -- colorschemes
   use 'joshdick/onedark.vim'
