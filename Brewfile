@@ -2,13 +2,6 @@
 
 cask_args appdir: "/Applications"
 
-# taps
-
-tap "homebrew/cask"
-tap "homebrew/cask-versions"
-tap "homebrew/cask-fonts"
-tap "qmk/qmk"
-
 brew "bash"
 brew "fzf"
 brew "git"
@@ -29,14 +22,15 @@ cask "flux"
 # cask "transmission"
 # cask "kodi"
 
-cask "whatsapp-alpha"
+# cask "whatsapp-alpha"
 # mas "Telegram", id: 747648890
 
 # letsencrypt
 
-brew "certbot"
+# brew "certbot"
 
 # keyboard/qmk
 
+tap "qmk/qmk"
 brew "qmk"
 cask "qmk-toolbox"
