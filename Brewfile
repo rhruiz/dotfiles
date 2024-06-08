@@ -19,6 +19,9 @@ cask "iterm2"
 cask "google-chrome@beta"
 cask "flux"
 
+# copilot
+brew "node"
+
 # cask "transmission"
 # cask "kodi"
 
