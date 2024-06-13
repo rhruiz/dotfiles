@@ -1,25 +1,20 @@
 #!/bin/bash
 
+[[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
 if [ -d $HOME/.bash_completion.d ] ; then
   for i in $HOME/.bash_completion.d/* ; do
     source $i
   done
 fi
 
-if [ -d /usr/local/etc/bash_completion.d ] ; then
-  for i in /usr/local/etc/bash_completion.d/* ; do
-    source $i
-  done
-fi
-
-if [ -f /usr/local/etc/bash_completion ] ; then
-    source /usr/local/etc/bash_completion
-fi
 
 if [ -n "$(type -t brew)" ] ; then
-  if [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
-    . $(brew --prefix)/share/bash-completion/bash_completion
-  fi
+    if [ -d $(brew --prefix)/etc/bash_completion.d ] ; then
+        for i in $(brew --prefix)/etc/bash_completion.d/* ; do
+            source $i
+        done
+    fi
 fi
 
 # set -o vi
