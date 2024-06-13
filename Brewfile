@@ -19,6 +19,8 @@ cask "iterm2"
 cask "google-chrome@beta"
 cask "flux"
 
+cask "karabiner-elements"
+
 # copilot
 brew "node"
 
@@ -29,7 +31,6 @@ brew "node"
 # mas "Telegram", id: 747648890
 
 # letsencrypt
-
 # brew "certbot"
 
 # keyboard/qmk
