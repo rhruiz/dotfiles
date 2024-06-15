@@ -11,6 +11,7 @@ return require('packer').startup(function(use)
       'nvim-lualine/lualine.nvim',
       requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
+  use { "elixir-tools/elixir-tools.nvim", tag = "stable", requires = { "nvim-lua/plenary.nvim" }}
   use 'mg979/vim-visual-multi'
   use 'tpope/vim-vinegar'
   use 'tpope/vim-surround'
