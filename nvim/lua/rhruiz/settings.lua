@@ -16,16 +16,35 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.smartcase = true
 vim.opt.ignorecase = true
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 vim.opt.backspace = "indent,eol,start"
 
 vim.opt.showcmd = true
-vim.opt.showmode = true
+vim.opt.showmode = false
 vim.opt.wildmenu = true
 
 vim.opt.colorcolumn = "80,100,120"
 vim.opt.title = true
+vim.opt.updatetime = 250
+vim.opt.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
-vim.opt.updatetime = 50
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
+-- Highlight when yanking (copying) text
+--  Try it with `yap` in normal mode
+--  See `:help vim.highlight.on_yank()`
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
