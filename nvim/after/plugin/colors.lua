@@ -5,6 +5,7 @@ if inUtterDarkness() then
     vim.cmd [[colorscheme onehalfdark]]
 else
     vim.o.background = 'light'
+    vim.cmd [[colorscheme vim]]
     vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end

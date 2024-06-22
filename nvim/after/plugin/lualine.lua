@@ -3,7 +3,7 @@ require('lualine').setup {
         icons_enabled = true,
         theme = (function ()
             if inUtterDarkness() then
-                return 'onedark'
+                return 'auto'
             else
                 return 'powerline'
             end
