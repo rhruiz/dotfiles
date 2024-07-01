@@ -66,6 +66,19 @@ require("lazy").setup({
     end,
   },
   'tpope/vim-repeat',
+  {
+    'folke/which-key.nvim',
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+      require('which-key').setup {
+        plugins = {
+          marks = true,
+          registers = true,
+        },
+      }
+    end,
+  },
   { 'HiPhish/rainbow-delimiters.nvim' },
   'mg979/vim-visual-multi',
   'bronson/vim-trailing-whitespace',
