@@ -48,7 +48,14 @@ require("lazy").setup({
           require('nvim-treesitter.configs').setup(opts)
       end,
   },
-  'nvim-treesitter/nvim-treesitter-context',
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    config = function()
+      require('treesitter-context').setup({
+        max_lines = 6,
+      })
+    end,
+  },
   {
       'nvim-lualine/lualine.nvim',
       dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }
