@@ -75,6 +75,17 @@ require("lazy").setup({
   'github/copilot.vim',
   -- { "zbirenbaum/copilot.lua" },
 
+  {
+    'mistricky/codesnap.nvim',
+    build = 'make',
+    config = function()
+      require('codesnap').setup({
+        code_font_family = "Hack Nerd Font",
+        bg_theme = "grape",
+      })
+    end,
+  },
+
   -- colorschemes,
   { 'joshdick/onedark.vim' },
   { 'folke/tokyonight.nvim' },
