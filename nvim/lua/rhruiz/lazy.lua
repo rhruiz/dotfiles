@@ -88,7 +88,8 @@ require("lazy").setup({
 
   -- colorschemes,
   { 'joshdick/onedark.vim' },
-  { 'folke/tokyonight.nvim' },
+  { 'folke/tokyonight.nvim', priority = 1000 },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   { 'romgrk/doom-one.vim' },
   { 'sonph/onehalf', config = function(p) vim.opt.rtp:append(p.dir .. '/vim')  end},
   { 'rakr/vim-one' },
