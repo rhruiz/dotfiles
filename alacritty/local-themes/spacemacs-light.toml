@@ -1,0 +1,31 @@
+# Spacemacs light Alacritty Colors
+# Default colors
+[colors.primary]
+background = '#fbf8ef'
+foreground = '#6c3163'
+
+#[colors.cursor]
+#cursor = '#3760bf'
+#text = '#e1e2e7'
+
+# Normal colors
+[colors.normal]
+black = '#d2ceda'
+red = '#f2241f'
+green = '#67b11d'
+yellow = '#b1951d'
+blue = '#3a81c3'
+magenta = '#a31db1'
+cyan = '#21b8c7'
+white = '#83758c'
+
+# Bright colors
+[colors.bright]
+black = '#666666'
+red = '#f2241f'
+green = '#67b11d'
+yellow = '#b1951d'
+blue = '#3a81c3'
+magenta = '#a31db1'
+cyan = '#21b8c7'
+white = '#3760bf'
