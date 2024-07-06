@@ -94,11 +94,11 @@ require("lazy").setup({
   { "elixir-tools/elixir-tools.nvim", tag = "stable", dependencies = { "nvim-lua/plenary.nvim" }},
   'github/copilot.vim',
   -- { "zbirenbaum/copilot.lua" },
-
-  -- colorschemes,
+  -- colorschemes
   { 'joshdick/onedark.vim' },
-  { 'folke/tokyonight.nvim' },
   { 'romgrk/doom-one.vim' },
+  { 'folke/tokyonight.nvim', priority = 1000 },
   { 'sonph/onehalf', config = function(p) vim.opt.rtp:append(p.dir .. '/vim')  end},
+  { 'catppuccin/nvim', name = "catppucin", priority = 1000 },
   { 'rakr/vim-one' },
 })
