@@ -52,7 +52,7 @@ require("lazy").setup({
     'nvim-treesitter/nvim-treesitter-context',
     config = function()
       require('treesitter-context').setup({
-        max_lines = 5,
+        max_lines = 6,
       })
     end,
   },
@@ -94,11 +94,22 @@ require("lazy").setup({
   { "elixir-tools/elixir-tools.nvim", tag = "stable", dependencies = { "nvim-lua/plenary.nvim" }},
   'github/copilot.vim',
   -- { "zbirenbaum/copilot.lua" },
-  -- colorschemes
+  {
+    'mistricky/codesnap.nvim',
+    build = 'make',
+    config = function()
+      require('codesnap').setup({
+        code_font_family = "Hack Nerd Font",
+        bg_theme = "grape",
+      })
+    end,
+  },
+
+  -- colorschemes,
   { 'joshdick/onedark.vim' },
-  { 'romgrk/doom-one.vim' },
   { 'folke/tokyonight.nvim', priority = 1000 },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  { 'romgrk/doom-one.vim' },
   { 'sonph/onehalf', config = function(p) vim.opt.rtp:append(p.dir .. '/vim')  end},
-  { 'catppuccin/nvim', name = "catppucin", priority = 1000 },
   { 'rakr/vim-one' },
 })
