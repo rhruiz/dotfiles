@@ -49,8 +49,19 @@ require("lazy").setup({
   'editorconfig/editorconfig-vim',
   'wakatime/vim-wakatime',
   { "elixir-tools/elixir-tools.nvim", tag = "stable", dependencies = { "nvim-lua/plenary.nvim" }},
-  'github/copilot.vim',
-  -- { "zbirenbaum/copilot.lua" },
+  -- 'github/copilot.vim',
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = {
+          auto_trigger = true
+        }
+      })
+    end,
+  },
   {
     'mistricky/codesnap.nvim',
     build = 'make',
