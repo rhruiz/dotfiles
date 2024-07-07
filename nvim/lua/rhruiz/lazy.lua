@@ -63,7 +63,7 @@ require("lazy").setup({
   },
 
   -- colorschemes,
-  { 'Th3Whit3Wolf/space-nvim' },
+  'liuchengxu/space-vim-theme',
   { 'joshdick/onedark.vim' },
   { 'folke/tokyonight.nvim', priority = 1000 },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
