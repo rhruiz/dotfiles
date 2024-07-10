@@ -105,6 +105,7 @@ return {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
+          { name = 'copilot', group_index = 2 },
         },
       }
     end,
