@@ -13,6 +13,9 @@ wk.register({
     ['<leader>fs'] = { builtin.live_grep, 'Live grep' },
     ['<leader>fr'] = { ivy(builtin.oldfiles), 'Old files' },
     ['<leader>/'] = { ivy(builtin.current_buffer_fuzzy_find), 'Current buffer fuzzy find' },
+    ['<leader>sp'] = { ivy(builtin.live_grep), 'Grep project' },
+    ['<leader>sw'] = { ivy(builtin.grep_string), 'Find word' },
+
     ['<C-p>'] = { ivy(builtin.git_files), 'Git files' },
 })
 
