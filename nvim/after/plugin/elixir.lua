@@ -1,5 +1,4 @@
 local elixir = require("elixir")
-local elixirls = require("elixir.elixirls")
 
 elixir.setup({
     nextls = {
@@ -11,13 +10,10 @@ elixir.setup({
                 completions = {
                     enable = true -- control if completions are enabled. defaults to false
                 }
-            }
+            },
         },
     },
-    credo = {
-        enable = false, -- defaults to true
-    },
     elixirls = {
-        enable = false,
+        enable = true,
     }
 })

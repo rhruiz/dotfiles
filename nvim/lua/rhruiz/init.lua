@@ -1,4 +1,8 @@
 inUtterDarkness = function()
+	if vim.env.KITTY_TERM == "1" then
+		return false
+	end
+
 	if vim.env.COLORTERM == "truecolor" then
 		return true
 	end

@@ -15,48 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   {
-    'nvim-telescope/telescope.nvim',
-    event = 'VimEnter',
-    branch = '0.1.x',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        build = 'make',
-        cond = function()
-          return vim.fn.executable 'make' == 1
-        end,
-      },
-      { 'nvim-telescope/telescope-ui-select.nvim' },
-       'nvim-tree/nvim-web-devicons',
-    }
-  },
-  {
-      'nvim-treesitter/nvim-treesitter',
-      build = ':TSUpdate',
-      opts = {
-          ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'elixir', 'ruby' },
-          auto_install = true,
-          highlight = {
-              enable = true,
-              additional_vim_regex_highlighting = { 'ruby' },
-          },
-          indent = { enable = true, disable = { 'ruby' } },
-      },
-      config = function(_, opts)
-          require('nvim-treesitter.install').prefer_git = true
-          require('nvim-treesitter.configs').setup(opts)
-      end,
-  },
-  {
-    'nvim-treesitter/nvim-treesitter-context',
-    config = function()
-      require('treesitter-context').setup({
-        max_lines = 6,
-      })
-    end,
-  },
-  {
       'nvim-lualine/lualine.nvim',
       dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }
   },
@@ -64,7 +22,6 @@ require("lazy").setup({
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   'tpope/vim-vinegar',
-  -- 'tpope/vim-surround',
   {
     'echasnovski/mini.nvim',
     config = function()
@@ -86,15 +43,12 @@ require("lazy").setup({
       }
     end,
   },
-  { 'HiPhish/rainbow-delimiters.nvim' },
+  'HiPhish/rainbow-delimiters.nvim',
   'mg979/vim-visual-multi',
   'bronson/vim-trailing-whitespace',
   'editorconfig/editorconfig-vim',
   'wakatime/vim-wakatime',
   { "elixir-tools/elixir-tools.nvim", tag = "stable", dependencies = { "nvim-lua/plenary.nvim" }},
-  'github/copilot.vim',
-  -- { "zbirenbaum/copilot.lua" },
-
   {
     'mistricky/codesnap.nvim',
     build = 'make',
@@ -107,10 +61,12 @@ require("lazy").setup({
   },
 
   -- colorschemes,
+  'liuchengxu/space-vim-theme',
   { 'joshdick/onedark.vim' },
   { 'folke/tokyonight.nvim', priority = 1000 },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   { 'romgrk/doom-one.vim' },
   { 'sonph/onehalf', config = function(p) vim.opt.rtp:append(p.dir .. '/vim')  end},
   { 'rakr/vim-one' },
+  { import = 'rhruiz.plugins' },
 })
