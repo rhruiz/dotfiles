@@ -10,7 +10,6 @@ local wk = require('which-key')
 wk.register({
     ['<leader>b'] = { ivy(builtin.buffers), 'Buffers' },
     ['<leader>ff'] = { ivy(builtin.find_files), 'Find files' },
-    ['<leader>fs'] = { builtin.live_grep, 'Live grep' },
     ['<leader>fr'] = { ivy(builtin.oldfiles), 'Old files' },
     ['<leader>/'] = { ivy(builtin.current_buffer_fuzzy_find), 'Current buffer fuzzy find' },
     ['<leader>sp'] = { ivy(builtin.live_grep), 'Grep project' },
