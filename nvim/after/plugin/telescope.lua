@@ -15,6 +15,7 @@ wk.add({
     { '<leader>sp', ivy(builtin.live_grep), desc = 'Grep project' },
     { '<leader>sw', ivy(builtin.grep_string), desc = 'Find word' },
     { '<C-p>', ivy(builtin.git_files), desc = 'Git files' },
+    { '<leader>gs', builtin.git_status, desc = '[G]it [S]tatus' },
 })
 
 require('telescope').setup {

@@ -32,6 +32,13 @@ require("lazy").setup({
   'tpope/vim-repeat',
   {
     'folke/which-key.nvim',
+    keys = {
+      {
+        "<leader>?",
+        function () require("which-key").show() end,
+        desc = "Buffef local keymaps"
+      },
+    },
     config = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 300
@@ -39,7 +46,7 @@ require("lazy").setup({
         plugins = {
           marks = true,
           registers = true,
-        },
+        }
       }
     end,
   },
