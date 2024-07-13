@@ -7,10 +7,8 @@ vim.keymap.set("x", "<leader>p", "\"_dP")
 
 local wk = require('which-key')
 
-wk.register({
-	["<leader>f"] = {
-		name = "+file",
-		y = { function() vim.fn.setreg("", vim.fn.fnamemodify(vim.fn.expand('%:p'), ':p:~:.')) end, 'Yank file path' },
-		Y = { function() vim.fn.setreg("+", vim.fn.fnamemodify(vim.fn.expand('%:p'), ':p:~:.')) end, 'Yank file path to clipboard' },
-	},
+wk.add({
+	{ '<leader>f', group = 'file' },
+	{ '<leader>fy', function() vim.fn.setreg("", vim.fn.fnamemodify(vim.fn.expand('%:p'), ':p:~:.')) end, desc = 'Yank file path' },
+	{ '<leader>fY', function() vim.fn.setreg("+", vim.fn.fnamemodify(vim.fn.expand('%:p'), ':p:~:.')) end,  desc = 'Yank file path to clipboard' },
 })

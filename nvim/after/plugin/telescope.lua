@@ -7,15 +7,14 @@ local ivy = function(telescope)
 end
 
 local wk = require('which-key')
-wk.register({
-    ['<leader>b'] = { ivy(builtin.buffers), 'Buffers' },
-    ['<leader>ff'] = { ivy(builtin.find_files), 'Find files' },
-    ['<leader>fr'] = { ivy(builtin.oldfiles), 'Old files' },
-    ['<leader>/'] = { ivy(builtin.current_buffer_fuzzy_find), 'Current buffer fuzzy find' },
-    ['<leader>sp'] = { ivy(builtin.live_grep), 'Grep project' },
-    ['<leader>sw'] = { ivy(builtin.grep_string), 'Find word' },
-
-    ['<C-p>'] = { ivy(builtin.git_files), 'Git files' },
+wk.add({
+    { '<leader>b', ivy(builtin.buffers), desc = 'Buffers' },
+    { '<leader>ff', ivy(builtin.find_files), desc = 'Find files' },
+    { '<leader>fr', ivy(builtin.oldfiles), desc = 'Old files' },
+    { '<leader>/', ivy(builtin.current_buffer_fuzzy_find), desc = 'Current buffer fuzzy find' },
+    { '<leader>sp', ivy(builtin.live_grep), desc = 'Grep project' },
+    { '<leader>sw', ivy(builtin.grep_string), desc = 'Find word' },
+    { '<C-p>', ivy(builtin.git_files), desc = 'Git files' },
 })
 
 require('telescope').setup {
