@@ -1,10 +1,10 @@
-require("rhruiz/settings")
+require("rhruiz.settings")
 pcall(function() require("rhruiz/local_settings") end)
-require("rhruiz/lazy")
-require("rhruiz/remap")
-require("rhruiz/ruby")
+require("rhruiz.lazy")
+require("rhruiz.remap")
+require("rhruiz.ruby")
 
-if require("rhruiz/colors").inUtterDarkness() then
+if require("rhruiz.colors").inUtterDarkness() then
     vim.g.doom_one_terminal_colors = true
     vim.o.background = 'dark'
     vim.cmd [[colorscheme onehalfdark]]
