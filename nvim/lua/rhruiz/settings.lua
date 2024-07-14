@@ -1,4 +1,5 @@
 vim.opt.guicursor = "i:block"
+vim.opt.termguicolors = vim.env.TERM_PROGRAM ~= "Apple_Terminal"
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -35,8 +36,6 @@ vim.opt.splitbelow = true
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode

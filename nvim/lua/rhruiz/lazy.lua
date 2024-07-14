@@ -14,10 +14,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  {
-      'nvim-lualine/lualine.nvim',
-      dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }
-  },
   { 'numToStr/Comment.nvim', opts = {} },
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
@@ -50,12 +46,10 @@ require("lazy").setup({
       }
     end,
   },
-  'HiPhish/rainbow-delimiters.nvim',
   'mg979/vim-visual-multi',
   'bronson/vim-trailing-whitespace',
   'editorconfig/editorconfig-vim',
   'wakatime/vim-wakatime',
-  { "elixir-tools/elixir-tools.nvim", tag = "stable", dependencies = { "nvim-lua/plenary.nvim" }},
   {
     'mistricky/codesnap.nvim',
     build = 'make',
