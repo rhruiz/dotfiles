@@ -1,3 +1,22 @@
+local mode_map = {
+  ['NORMAL'] = '\u{f36f}',
+  ['O-PENDING'] = 'N?',
+  ['INSERT'] = '',
+  ['VISUAL'] = '',
+  ['V-BLOCK'] = '',
+  ['V-LINE'] = 'L',
+  ['V-REPLACE'] = '',
+  ['REPLACE'] = '',
+  ['COMMAND'] = '',
+  ['SHELL'] = '',
+  ['TERMINAL'] = '',
+  ['EX'] = 'X',
+  ['S-BLOCK'] = '',
+  ['S-LINE'] = 'L',
+  ['SELECT'] = '',
+  ['CONFIRM'] = '',
+  ['MORE'] = 'M',
+}
 require('lualine').setup {
     options = {
         icons_enabled = true,
@@ -8,8 +27,10 @@ require('lualine').setup {
                 return 'powerline'
             end
         end)(),
-        component_separators = { left = '', right = ''},
-        section_separators = { left = '', right = ''},
+        -- component_separators = { left = '', right = ''},
+        -- section_separators = { left = '', right = ''},
+        component_separators  = { left = "\u{e0bd}", right = "\u{e0bd}"},
+        section_separators = { left = "\u{e0bc}", right = "\u{e0ba}"},
         disabled_filetypes = {
             statusline = {},
             winbar = {},
@@ -24,8 +45,8 @@ require('lualine').setup {
         }
     },
     sections = {
-        lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff', 'diagnostics'},
+        lualine_a = { { 'mode', fmt = function(s) return mode_map[s] or s end } },
+        lualine_b = { { 'branch', icon = "" }, 'diff', 'diagnostics'},
         lualine_c = {'filename'},
         lualine_x = {'encoding', 'fileformat', 'filetype'},
         lualine_y = {'progress'},
