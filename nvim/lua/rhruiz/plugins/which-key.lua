@@ -1,14 +1,16 @@
 return {
   'folke/which-key.nvim',
-  keys = {
-    {
-      "<leader>?",
-      function () require("which-key").show() end,
-      desc = "Buffef local keymaps"
-    },
-  },
   config = function()
+    local wk = require("which-key")
     vim.o.timeout = true
     vim.o.timeoutlen = 300
+    wk.setup({
+      spec = {
+        { "<leader>?",
+          wk.show,
+          desc = "Buffef local keymaps"
+        },
+      },
+    })
   end
 }
