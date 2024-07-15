@@ -15,8 +15,8 @@ decorations = "Transparent"
 option_as_alt = "OnlyLeft"
 
 [font]
-normal = { family = "Hack Nerd Font Propo", style = "Regular" }
-bold = { family = "Hack Nerd Font Propo", style = "Regular" }
+normal = { family = "Hack Nerd Font Mono", style = "Regular" }
+bold = { family = "Hack Nerd Font Mono", style = "Regular" }
 size = 16.0
 
 [cursor]
