@@ -1,14 +1,16 @@
 local colors = {}
 
-function colors.inUtterDarkness()
-		if vim.env.KITTY_TERM == "1" then
+local runtime = require("rhruiz.runtime")
+
+function colors.is_dark_mode()
+		if runtime.is_kitty() then
 				return false
 		end
-		if vim.env.COLORTERM == "truecolor" then
+		if runtime.is_truecolor() then
 				return true
 		end
-		return vim.env.GNOME_TERMINAL_SCREEN ~= nil
-				and vim.env.TERM_PROGRAM ~= "Apple_Terminal"
+
+    return not runtime.is_terminal_app()
 				and vim.env.ITERM_PROFILE ~= "Spacemacs light"
 end
 

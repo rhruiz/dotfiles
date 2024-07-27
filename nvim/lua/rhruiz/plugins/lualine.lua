@@ -26,7 +26,7 @@ return {
       options = {
         icons_enabled = true,
         theme = (function ()
-          if require("rhruiz/colors").inUtterDarkness() then
+          if require("rhruiz.colors").is_dark_mode() then
             return 'auto'
           else
             return 'powerline'
