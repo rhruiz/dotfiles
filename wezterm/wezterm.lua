@@ -9,7 +9,7 @@ config.font_size = (is_mac and 15.0 or 13.0)
 
 config.colors = wezterm.color.get_builtin_schemes()[color_scheme]
 
-config.window_decorations = "RESIZE"
+config.window_decorations = (is_mac and "RESIZE | INTEGRATED_BUTTONS" or "RESIZE")
 config.window_padding = {
     left = 8,
     right = 8,
