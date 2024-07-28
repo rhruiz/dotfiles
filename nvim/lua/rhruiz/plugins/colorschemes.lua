@@ -1,3 +1,5 @@
+local colors = require("rhruiz.colors")
+
 return {
   { 'liuchengxu/space-vim-theme', priority = 1000 },
   { 'joshdick/onedark.vim', priority = 1000 },
