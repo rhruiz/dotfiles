@@ -24,6 +24,7 @@ return {
     end
 
     require('which-key').add({
+      { '<leader>sr', ivy(builtin.resume), desc = '[S]earch: [R]esume' },
       { '<leader>b', ivy(builtin.buffers), desc = 'Buffers' },
       { '<leader>ff', ivy(builtin.find_files), desc = 'Find files' },
       { '<leader>fp', ivy(builtin.git_files), desc = 'Git files' },
