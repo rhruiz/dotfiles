@@ -8,7 +8,7 @@ return {
       spec = {
         { "<leader>?",
           wk.show,
-          desc = "Buffef local keymaps"
+          desc = "Buffer local keymaps"
         },
       },
     })
