@@ -36,6 +36,40 @@ if is_mac then
   config.macos_window_background_blur = 30
 end
 
+
+config.keys = {
+  {
+    key = 'UpArrow',
+    mods = 'CMD',
+    action = wezterm.action.ActivatePaneDirection "Up",
+  },
+  {
+    key = 'DownArrow',
+    mods = 'CMD',
+    action = wezterm.action.ActivatePaneDirection "Down",
+  },
+  {
+    key = 'LeftArrow',
+    mods = 'CMD',
+    action = wezterm.action.ActivatePaneDirection "Left",
+  },
+  {
+    key = 'RightArrow',
+    mods = 'CMD',
+    action = wezterm.action.ActivatePaneDirection "Right",
+  },
+  {
+    key = '/',
+    mods = 'CMD',
+    action = wezterm.action.SplitHorizontal{domain="CurrentPaneDomain"},
+  },
+  {
+    key = '"',
+    mods = 'CMD',
+    action = wezterm.action.SplitVertical{domain="CurrentPaneDomain"},
+  },
+}
+
 local tab_title = function(tab_info)
   local title = tab_info.tab_title
   -- if the tab title is explicitly set, take that
