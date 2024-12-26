@@ -5,7 +5,12 @@ font-family = ""
 font-family = "Hack Nerd Font Mono"
 font-size = 16.0
 font-thicken = false
+
+cursor-style = block
+cursor-style-blink = ""
 shell-integration-features = no-cursor
+
+cursor-color = "#EEAD0D"
 
 macos-titlebar-style = tabs
 macos-option-as-alt = left
