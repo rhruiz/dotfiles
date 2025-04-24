@@ -1,3 +1,8 @@
 #!/bin/bash
 
-. $HOME/.bashrc
+# on Darwin/macOS, load bashrc because reasons and login shells.
+if [[ $OSTYPE == darwin* ]]; then
+    . $HOME/.bashrc
+else
+    . $HOME/.profile
+fi
