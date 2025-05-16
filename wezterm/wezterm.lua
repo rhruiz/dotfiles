@@ -1,6 +1,7 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local is_mac = wezterm.target_triple:find("darwin") ~= nil
+-- local color_scheme = "OneHalfDark"
 local color_scheme = "tokyonight_storm"
 -- local color_scheme = "Catppuccin Mocha"
 
@@ -9,7 +10,7 @@ config.font_size = (is_mac and 15.0 or 13.0)
 
 config.colors = wezterm.color.get_builtin_schemes()[color_scheme]
 
-config.window_decorations = (is_mac and "RESIZE | INTEGRATED_BUTTONS" or "RESIZE")
+config.window_decorations = "RESIZE|INTEGRATED_BUTTONS"
 config.window_padding = {
     left = 8,
     right = 8,
@@ -17,15 +18,47 @@ config.window_padding = {
     bottom = 8,
 }
 
+config.window_frame = {
+  border_top_height = '0.2cell',
+}
+
 config.initial_rows = 30
 config.initial_cols = 100
 
 config.enable_tab_bar = true
 config.use_fancy_tab_bar = false
-config.hide_tab_bar_if_only_one_tab = true
+config.hide_tab_bar_if_only_one_tab = false
+config.integrated_title_button_alignment = "Left"
+config.integrated_title_buttons = { "Close", "Hide", "Maximize" }
+
 config.tab_bar_style = {
   new_tab = " " .. wezterm.nerdfonts.fa_plus_square_o .. " ",
   new_tab_hover = " " .. wezterm.nerdfonts.fa_plus_square .. " ",
+  window_maximize = wezterm.format {
+    { Foreground = { Color = "#a6da95" } },
+    { Text = " " .. wezterm.nerdfonts.fa_circle }
+  },
+  window_maximize_hover = wezterm.format {
+    { Foreground = { Color = "#c3e88d" } },
+    { Text = " " .. wezterm.nerdfonts.fa_plus_circle }
+  },
+  window_hide = wezterm.format {
+    { Foreground = { Color = "#f5a97f" } },
+    { Text = " " .. wezterm.nerdfonts.fa_circle }
+  },
+  window_hide_hover = wezterm.format {
+    { Foreground = { Color = "#ffc777" } },
+    { Text = " " .. wezterm.nerdfonts.fa_minus_circle }
+  },
+  window_close = wezterm.format {
+    { Foreground = { Color = "#f38ba8" } },
+    { Text = " " .. wezterm.nerdfonts.fa_circle }
+    -- { Text = " " .. wezterm.nerdfonts.ple_left_half_circle_thick .. wezterm.nerdfonts.ple_right_half_circle_thick}
+  },
+  window_close_hover = wezterm.format {
+    { Foreground = { Color = "#eba0ac" } },
+    { Text = " " .. wezterm.nerdfonts.md_stop_circle }
+  }
 }
 
 config.enable_kitty_keyboard = true
@@ -35,7 +68,6 @@ if is_mac then
   config.window_background_opacity = 0.95
   config.macos_window_background_blur = 30
 end
-
 
 config.keys = {
   {
