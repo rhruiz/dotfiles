@@ -19,7 +19,7 @@ config.window_padding = {
 }
 
 config.window_frame = {
-  border_top_height = '0.2cell',
+  border_top_height = '0.25cell',
 }
 
 config.initial_rows = 30
