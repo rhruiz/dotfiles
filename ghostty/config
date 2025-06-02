@@ -12,9 +12,9 @@ shell-integration-features = no-cursor
 
 cursor-color = "#EEAD0D"
 
-macos-titlebar-style = tabs
 macos-option-as-alt = left
 macos-icon = custom-style
+macos-titlebar-style = transparent
 macos-icon-frame = beige
 macos-icon-ghost-color = "#0000ff"
 macos-icon-screen-color = "#ff0000"
