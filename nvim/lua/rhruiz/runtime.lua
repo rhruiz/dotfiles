@@ -12,4 +12,6 @@ function runtime.is_terminal_app()
 	return vim.env.TERM_PROGRAM == "Apple_Terminal"
 end
 
+runtime.load_copilot = false
+
 return runtime
