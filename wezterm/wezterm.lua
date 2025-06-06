@@ -5,6 +5,15 @@ local is_mac = wezterm.target_triple:find("darwin") ~= nil
 local color_scheme = "tokyonight_storm"
 -- local color_scheme = "Catppuccin Mocha"
 
+
+if not is_mac then
+  local act = wezterm.action
+  config.keys = {
+    { key = 'Backspace', mods = 'CTRL', action = act.SendKey {key = 'w', mods = 'CTRL'} }
+  }
+end
+
+
 config.font = wezterm.font("Hack Nerd Font Mono")
 config.font_size = (is_mac and 15.0 or 13.0)
 
