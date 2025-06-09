@@ -1,3 +1,6 @@
 return {
-  'wakatime/vim-wakatime'
+  {
+    "wakatime/vim-wakatime",
+    cond = not require("rhruiz.runtime").vscode
+  }
 }

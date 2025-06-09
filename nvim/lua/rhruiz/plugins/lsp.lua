@@ -1,6 +1,7 @@
  -- LSP Configuration & Plugins
 return {
     'neovim/nvim-lspconfig',
+    cond = not require('rhruiz.runtime').vscode,
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
       { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants

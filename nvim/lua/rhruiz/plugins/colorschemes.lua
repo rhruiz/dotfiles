@@ -1,4 +1,8 @@
-local colors = require("rhruiz.colors")
+local runtime = require("rhruiz.runtime")
+
+if runtime.vscode then
+  return {}
+end
 
 return {
   { 'liuchengxu/space-vim-theme', priority = 1000 },

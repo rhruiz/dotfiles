@@ -1,6 +1,7 @@
 return {
   {
     "folke/trouble.nvim",
+    cond = not require("rhruiz.runtime").vscode,
     cmd = "Trouble",
     keys = {
       { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },

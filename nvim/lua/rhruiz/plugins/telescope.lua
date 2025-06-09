@@ -1,6 +1,7 @@
 return {
   'nvim-telescope/telescope.nvim',
   event = 'VimEnter',
+  cond = not require('rhruiz.runtime').vscode,
   branch = '0.1.x',
   dependencies = {
     'nvim-lua/plenary.nvim',
