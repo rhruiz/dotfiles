@@ -143,7 +143,7 @@ fi
 
 # PATH
 
-PATH=$HOME/bin:$PATH:/usr/local/sbin
+PATH=$HOME/.local/bin:$PATH:/usr/local/sbin
 
 export PATH
 
