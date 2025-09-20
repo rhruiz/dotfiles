@@ -21,4 +21,3 @@ macos-icon-screen-color = "#ff0000"
 
 keybind = shift+page_up=scroll_page_up
 keybind = shift+page_down=scroll_page_down
-keybind = ctrl+m=text:\r
