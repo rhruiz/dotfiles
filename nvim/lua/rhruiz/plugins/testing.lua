@@ -1,3 +1,7 @@
+if require('rhruiz.runtime').vscode then
+  return {}
+end
+
 return {
   "nvim-neotest/neotest",
   dependencies = {

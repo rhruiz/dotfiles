@@ -1,3 +1,7 @@
+if require('rhruiz.runtime').vscode then
+  return {}
+end
+
 return {
   "tpope/vim-dispatch",
   "clojure-vim/vim-jack-in",
