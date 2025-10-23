@@ -35,7 +35,7 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = ","
 
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
