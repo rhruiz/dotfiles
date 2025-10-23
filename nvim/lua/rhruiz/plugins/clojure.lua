@@ -43,6 +43,12 @@ return {
     end,
   },
   {
+    "julienvincent/nvim-paredit",
+    config = function()
+      require("nvim-paredit").setup()
+    end
+  },
+  {
     "PaterJason/cmp-conjure",
     config = function()
       require'cmp'.setup{
