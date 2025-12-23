@@ -1,8 +1,13 @@
 # theme = dark:OneHalfDark,light:OneHalfLight
-theme = "One Half Dark"
+# theme = "One Double Dark"
+# theme = "Atom One Light"
+# theme = "Dawnfox"
+# theme = "Dayfox"
+theme = "Flexoki Light"
 
 font-family = ""
 font-family = "Hack Nerd Font Propo"
+font-style = "Regular"
 font-size = 16.0
 font-thicken = false
 
