@@ -9,7 +9,15 @@ function colors.transparent_bg()
 end
 
 function colors.is_dark_mode()
-	if runtime.is_kitty() then
+	if vim.env.TERMINAL_BG == "dark" then
+		return true
+	end
+
+	if vim.env.TERMINAL_BG == "light" then
+		return false
+	end
+
+	if runtime.is_kitty() or runtime.is_terminal_app() then
 		return false
 	end
 
