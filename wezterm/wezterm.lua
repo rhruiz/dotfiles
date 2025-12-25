@@ -14,6 +14,8 @@ if not is_mac then
 end
 
 
+config.max_fps = 120
+
 config.font = wezterm.font("Hack Nerd Font Mono")
 config.font_size = (is_mac and 15.0 or 13.0)
 
