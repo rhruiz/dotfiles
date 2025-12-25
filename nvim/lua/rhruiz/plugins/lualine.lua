@@ -25,13 +25,7 @@ return {
     require('lualine').setup {
       options = {
         icons_enabled = true,
-        theme = (function ()
-          if require("rhruiz.colors").is_dark_mode() then
-            return 'auto'
-          else
-            return 'powerline'
-          end
-        end)(),
+        theme = 'auto',
         -- component_separators = { left = '', right = ''},
         -- section_separators = { left = '', right = ''},
         component_separators  = { left = "\u{e0bd}", right = "\u{e0bd}" },
