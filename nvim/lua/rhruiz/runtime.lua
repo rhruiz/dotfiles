@@ -1,6 +1,8 @@
 local runtime = {}
 
-function runtime.is_wezterm() return vim.env.WEZTERM_UNIX_SOCKET ~= nil end
+function runtime.is_wezterm() return vim.env.TERM_PROGRAM == "WezTerm" end
+
+function runtime.is_ghostty() return vim.env.TERM_PROGRAM == "ghostty" end
 
 function runtime.is_mac() return vim.loop.os_uname().sysname == "Darwin" end
 
