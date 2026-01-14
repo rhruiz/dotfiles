@@ -42,6 +42,7 @@ return {
       })
     end,
   },
+  {"eraserhd/parinfer-rust", build = "cargo build --release"},
   {
     "julienvincent/nvim-paredit",
     config = function()
