@@ -49,14 +49,4 @@ return {
       require("nvim-paredit").setup()
     end
   },
-  {
-    "PaterJason/cmp-conjure",
-    config = function()
-      require'cmp'.setup{
-        sources = {
-          { name = 'conjure' }
-        }
-      }
-    end,
-  }
 }
