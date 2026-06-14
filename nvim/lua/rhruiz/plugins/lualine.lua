@@ -31,7 +31,7 @@ return {
         component_separators  = { left = "\u{e0bd}", right = "\u{e0bd}" },
         section_separators = { left = "", right = "" },
         disabled_filetypes = {
-          statusline = {},
+          statusline = { 'TelescopePrompt', 'TelescopeResults' },
           winbar = {},
         },
         ignore_focus = {},
