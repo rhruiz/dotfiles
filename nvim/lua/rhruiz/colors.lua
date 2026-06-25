@@ -29,9 +29,4 @@ function colors.is_dark_mode()
 		and vim.env.ITERM_PROFILE ~= "Spacemacs light"
 end
 
-function colors.use_transparent_bg()
-	return not colors.is_dark_mode() or
-		(runtime.is_wezterm() and runtime.is_mac())
-end
-
 return colors

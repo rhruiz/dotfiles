@@ -16,9 +16,7 @@ if not runtime.vscode then
 		vim.cmd [[colorscheme space_vim_theme]]
 	end
 
-	if colors.use_transparent_bg() then
-		colors.transparent_bg()
-	end
+	colors.transparent_bg()
 else
 	require("rhruiz.vscode")
 end
