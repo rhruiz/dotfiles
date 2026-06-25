@@ -7,7 +7,7 @@ return {
     config = function(_, _)
       require('nvim-treesitter').install { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'elixir', 'ruby' }
       vim.api.nvim_create_autocmd('FileType', {
-        pattern = { '<filetype>' },
+        pattern = { 'elixir', 'heex', 'eex' },
         callback = function() vim.treesitter.start() end,
       })
     end,
