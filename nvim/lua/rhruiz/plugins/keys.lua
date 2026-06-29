@@ -1,1 +1,9 @@
-return { "nvzone/showkeys", cmd = "ShowkeysToggle" }
+return {
+  {
+    "nvzone/showkeys",
+    cmd = "ShowkeysToggle",
+    opts = {
+      maxkeys = 5,
+    }
+  }
+}
