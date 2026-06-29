@@ -17,7 +17,6 @@ function colors.is_dark_mode()
 		return false
 	end
 
-
 	if vim.env.TERMINAL_THEME and vim.env.TERMINAL_THEME:lower():find("light") then
 		return false
 	end
@@ -25,7 +24,6 @@ function colors.is_dark_mode()
 	if vim.env.TERMINAL_THEME == "Flexoki" then
 		return false
 	end
-
 
 	if runtime.is_kitty() or runtime.is_terminal_app() then
 		return false

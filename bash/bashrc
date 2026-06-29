@@ -141,6 +141,12 @@ if [ ! -n "$(type -t update_terminal_cwd)" ]; then
   fi
 fi
 
+# term theme
+
+if [[ "${TERM_PROGRAM}" = "ghostty" ]]; then
+  export TERMINAL_THEME=$(ghostty +show-config | egrep '^theme =' | cut -c 9-)
+fi
+
 # PATH
 
 PATH=$HOME/.local/bin:$PATH:/usr/local/sbin
