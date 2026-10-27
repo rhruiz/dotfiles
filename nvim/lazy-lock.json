@@ -53,6 +53,6 @@
   "vim-trailing-whitespace": { "branch": "master", "commit": "dc22ff46010e55d2c33edd21cdcd14f99e729b6f" },
   "vim-vinegar": { "branch": "master", "commit": "bb1bcddf43cfebe05eb565a84ab069b357d0b3d6" },
   "vim-visual-multi": { "branch": "master", "commit": "a6975e7c1ee157615bbc80fc25e4392f71c344d4" },
-  "vim-wakatime": { "branch": "master", "commit": "9f8a1d3b9c6f3a948988a0896b3227c1e1f74a58" },
+  "vim-wakatime": { "branch": "master", "commit": "98cb7a8a09f8a0cb225b5955bf491ffb9860569f" },
   "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" }
 }
